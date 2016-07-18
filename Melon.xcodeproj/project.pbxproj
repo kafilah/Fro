@@ -33,6 +33,8 @@
 		6BEDCFA21D2D500F0003F190 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BEDCFA01D2D500F0003F190 /* LaunchScreen.storyboard */; };
 		6BEDCFAC1D2D52AD0003F190 /* sfx_flap.caf in Resources */ = {isa = PBXBuildFile; fileRef = 6BEDCFAA1D2D52AD0003F190 /* sfx_flap.caf */; };
 		6BEDCFAD1D2D52AD0003F190 /* sfx_goal.caf in Resources */ = {isa = PBXBuildFile; fileRef = 6BEDCFAB1D2D52AD0003F190 /* sfx_goal.caf */; };
+		6BEDD41A1D3D715F00CCB0E7 /* pickchar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEDD4191D3D715F00CCB0E7 /* pickchar.swift */; };
+		6BEDD41E1D3D71B000CCB0E7 /* pickchar.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6BEDD41D1D3D71B000CCB0E7 /* pickchar.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +66,8 @@
 		6BEDCFA31D2D500F0003F190 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6BEDCFAA1D2D52AD0003F190 /* sfx_flap.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sfx_flap.caf; sourceTree = "<group>"; };
 		6BEDCFAB1D2D52AD0003F190 /* sfx_goal.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sfx_goal.caf; sourceTree = "<group>"; };
+		6BEDD4191D3D715F00CCB0E7 /* pickchar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pickchar.swift; sourceTree = "<group>"; };
+		6BEDD41D1D3D71B000CCB0E7 /* pickchar.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = pickchar.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +134,8 @@
 				6BEDCF951D2D500F0003F190 /* GameScene.sks */,
 				6BEDCF971D2D500F0003F190 /* GameScene.swift */,
 				6B9DCF061D34319900551877 /* MainScene.swift */,
+				6BEDD4191D3D715F00CCB0E7 /* pickchar.swift */,
+				6BEDD41D1D3D71B000CCB0E7 /* pickchar.sks */,
 				6B9DCF041D342E1D00551877 /* MainScene.sks */,
 				6BECC8861D2D9B53006ED0B7 /* Objects.swift */,
 				6BEDCF991D2D500F0003F190 /* GameViewController.swift */,
@@ -183,6 +189,7 @@
 				TargetAttributes = {
 					6BEDCF8F1D2D500F0003F190 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = N8FD59XP9Z;
 					};
 				};
 			};
@@ -209,6 +216,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BEDD41E1D3D71B000CCB0E7 /* pickchar.sks in Resources */,
 				6BEDCF961D2D500F0003F190 /* GameScene.sks in Resources */,
 				6BEDCFAC1D2D52AD0003F190 /* sfx_flap.caf in Resources */,
 				6BEDCFA21D2D500F0003F190 /* LaunchScreen.storyboard in Resources */,
@@ -236,6 +244,7 @@
 				6B739A361D33F79800EDAE3C /* CGPoint+Extensions.swift in Sources */,
 				6B739A3A1D33F79800EDAE3C /* SKAction+SpecialEffects.swift in Sources */,
 				6B739A331D33F79800EDAE3C /* MSButtonNode.swift in Sources */,
+				6BEDD41A1D3D715F00CCB0E7 /* pickchar.swift in Sources */,
 				6B739A3F1D33F79800EDAE3C /* SKTTimingFunctions.swift in Sources */,
 				6B739A3B1D33F79800EDAE3C /* SKColor+Extensions.swift in Sources */,
 				6B739A381D33F79800EDAE3C /* Int+Extensions.swift in Sources */,
@@ -357,10 +366,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Melon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.kafilah.Melon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -368,10 +380,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Melon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.kafilah.Melon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
