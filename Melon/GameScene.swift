@@ -123,20 +123,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if (nodeA.name == "hero" || nodeB.name == "hero" ) && (nodeB.name == "badObstacle" || nodeA.name == "badObstacle") {
             
             /* Grab reference to our SpriteKit view */
-            let skView = self.view as SKView!
-            
-            /* Load Game scene */
-            let scene = MainScene(fileNamed:"MainScene") as MainScene!
-            
-            /* Ensure correct aspect mode */
-            scene.scaleMode = .AspectFill
-            
-            /* Show debug */
-            skView.showsDrawCount = true
-            skView.showsFPS = true
-            
-            /* Start game scene */
-            skView.presentScene(scene)
+            if let skView = self.view as SKView! {
+                
+                /* Load Game scene */
+                let scene = MainScene(fileNamed:"MainScene") as MainScene!
+                
+                /* Ensure correct aspect mode */
+                scene.scaleMode = .AspectFill
+                
+                /* Start game scene */
+                skView.presentScene(scene)
+            }
         }
     
     }
