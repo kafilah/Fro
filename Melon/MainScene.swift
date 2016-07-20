@@ -28,7 +28,7 @@ class MainScene: SKScene {
             let skView = self.view as SKView!
             
             /* Load Game scene */
-            let scene = GameScene(fileNamed:"GameScene") as GameScene!
+            let scene = pickchar(fileNamed:"pickchar") as pickchar!
             
             /* Ensure correct aspect mode */
             scene.scaleMode = .AspectFill

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-
 import SpriteKit
 
 
@@ -41,9 +40,15 @@ import SpriteKit
         newbadObstacle.position = CGPointMake(CGFloat.random(min: 10, max:300), 500)
         newbadObstacle.physicsBody?.mass = 0.005
         return newbadObstacle
+    }
+
+        
+ 
+ 
+        
         
     
-    }
+
 
 
 
