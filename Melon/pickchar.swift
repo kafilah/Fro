@@ -41,6 +41,15 @@ class pickchar: SKScene {
     
     var customizeHair: MSButtonNode!
     
+    /*this creates UI connection for shirt options*/
+    var shirts: SKSpriteNode!
+    
+    var shirtOptions = ["shirt1", "shirt2", "shirt3", "shirt4", "shirt5", "shirt6"]
+    
+    var currentshirt = 0
+    
+    var customizeShirt: MSButtonNode!
+    
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         
@@ -57,10 +66,15 @@ class pickchar: SKScene {
         
         skins = self.childNodeWithName("//skins") as! SKSpriteNode
         
-        /*this creates UI connection for skins*/
+        /*this creates UI connection for hairs*/
         customizeHair = self.childNodeWithName("//customizeHair") as! MSButtonNode
         
         hairs = self.childNodeWithName("//hairs") as! SKSpriteNode
+        
+        /*this creates UI connection for shirts*/
+        customizeShirt = self.childNodeWithName("customizeShirt") as! MSButtonNode
+        
+        shirts = self.childNodeWithName("//shirts") as! SKSpriteNode
         
         /* Setup restart button selection handler */
         next.selectedHandler = {
@@ -124,6 +138,18 @@ class pickchar: SKScene {
             self.hairs.texture = SKTexture(imageNamed: self.hairOptions[self.currenthair])
         }
         
+        /*Setup button to move through array of shirt objects I have created*/
+        customizeShirt.selectedHandler = {
+            
+            /*enables the changing of shirt color*/
+            self.currentshirt = self.currentshirt + 1
+            
+            /*this enables it to go back to change shirt color*/
+            self.currentshirt = self.currentshirt % self.shirtOptions.count
+            
+            /*changes the texture of shirt when clicking on customize shirt button*/
+            self.shirts.texture = SKTexture(imageNamed: self.shirtOptions[self.currentshirt])
+        }
     }
     
 }
