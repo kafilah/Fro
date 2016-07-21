@@ -14,7 +14,7 @@ class pickchar: SKScene {
     /* UI Connections */
     var next: MSButtonNode!
     
-    /*this creates UI connection for eyes*/
+    /*this creates UI connection for eyes and eyecustomizebutton*/
     var eyes: SKSpriteNode!
     
     var eyeOptions = ["eyes1", "eyes2", "eyes3", "eyes4", "eyes5"]
@@ -23,16 +23,44 @@ class pickchar: SKScene {
     
     var customizeEye: MSButtonNode!
     
+    /*this creates UI connection for skin and skincustomize button*/
+    var skins: SKSpriteNode!
+    
+    var skinOptions = ["skin1", "skin2", "skin3", "skin4", "skin5", "skin6"]
+    
+    var currentskin = 0
+    
+    var customizeSkin: MSButtonNode!
+    
+    /*this creates UI connection for hair options*/
+    var hairs: SKSpriteNode!
+    
+    var hairOptions = ["fro", "fro1", "fro2"]
+    
+    var currenthair = 0
+    
+    var customizeHair: MSButtonNode!
+    
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         
         /* Set UI connections */
         next = self.childNodeWithName("next") as! MSButtonNode
         
+        /*this creates UI connection for eyes*/
         customizeEye = self.childNodeWithName("//customizeEye") as! MSButtonNode
         
-        /*this creates UI connection for eyes against*/
         eyes = self.childNodeWithName("//eyes") as! SKSpriteNode
+        
+        /*this creates UI connection for skins*/
+        customizeSkin = self.childNodeWithName("//customizeSkin") as! MSButtonNode
+        
+        skins = self.childNodeWithName("//skins") as! SKSpriteNode
+        
+        /*this creates UI connection for skins*/
+        customizeHair = self.childNodeWithName("//customizeHair") as! MSButtonNode
+        
+        hairs = self.childNodeWithName("//hairs") as! SKSpriteNode
         
         /* Setup restart button selection handler */
         next.selectedHandler = {
@@ -55,7 +83,7 @@ class pickchar: SKScene {
             skView.presentScene(scene)
         }
         
-        /* Setup button to move through array of features that I have created */
+        /* Setup button to move through array of eyes that I have created */
         customizeEye.selectedHandler = {
             
             /*this enables the customize buttons to change the eye position/ color */
@@ -67,7 +95,33 @@ class pickchar: SKScene {
             /* changes the texture (image) when selecting the customize button */
             self.eyes.texture = SKTexture(imageNamed: self.eyeOptions[self.currenteye])
             
+            }
+        
+        
+        /*Setup button to move through array of skins I have created*/
+        customizeSkin.selectedHandler = {
             
+            /*enables the changing of skin color*/
+            self.currentskin = self.currentskin + 1
+            
+            /*this enables it to go back to first element in array once the skins are ran through*/
+            self.currentskin = self.currentskin % self.skinOptions.count
+            
+            /* changes the texture of skin when clicking on customize skin button*/
+            self.skins.texture = SKTexture(imageNamed: self.skinOptions[self.currentskin])
+        }
+        
+        /*Setup button to move through array of hair objects I have created*/
+        customizeHair.selectedHandler = {
+            
+            /*enables the changing of hair color*/
+            self.currenthair = self.currenthair + 1
+            
+            /*this enables it to go back to change hair color*/
+            self.currenthair = self.currenthair % self.hairOptions.count
+            
+            /* changes the texture of skin when clicking on customize hair button*/
+            self.hairs.texture = SKTexture(imageNamed: self.hairOptions[self.currenthair])
         }
         
     }
