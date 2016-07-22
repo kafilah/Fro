@@ -21,6 +21,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var badtimer: CGFloat = 0
     
+    var damagetimer: CGFloat = 0
+    
+    /*health bar*/
+    var healthBar: SKSpriteNode!
+    
+    var health: CGFloat = 1.0 {
+        didSet {
+            /* Scale health bar between 0.0 -> 1.0 e.g 0 -> 100% */
+            healthBar.xScale = health * 2.382    /*scaled relative to what i set scaled of bar too*/
+        }
+    }
+    
     /* score label*/
     var scoreLabel: SKLabelNode!
     
@@ -38,6 +50,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     /* Set reference to hair node which is attached to hero sprite node*/
     hair = self.childNodeWithName("//hair") as! SKSpriteNode
+        
+    /*Set reference to healthBar node*/
+    healthBar = self.childNodeWithName("//healthBar") as! SKSpriteNode
 
         
     /*connect the scorelabel*/
@@ -122,17 +137,36 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         /* this restarts game so far if character collides with bad object*/
         if (nodeA.name == "hero" || nodeB.name == "hero" ) && (nodeB.name == "badObstacle" || nodeA.name == "badObstacle") {
             
-            /* Grab reference to our SpriteKit view */
-            if let skView = self.view as SKView! {
+            if nodeA.name == "badObstacle" {
+                nodeA.removeFromParent()
+            }
+            else {
+                nodeB.removeFromParent()
+            }
+            
+            /*added to measure amount of contact with bad obstavle before decreasing health bar*/
+            if damagetimer >= 0.5{
                 
-                /* Load Game scene */
-                let scene = MainScene(fileNamed:"MainScene") as MainScene!
+                damagetimer = 0
+            
+                /*decrease health*/
+                health -= 0.1
                 
-                /* Ensure correct aspect mode */
-                scene.scaleMode = .AspectFill
+                if health <= 0 {
                 
-                /* Start game scene */
-                skView.presentScene(scene)
+                    /* Grab reference to our SpriteKit view */
+                    if let skView = self.view as SKView! {
+                    
+                        /* Load Game scene */
+                        let scene = MainScene(fileNamed:"MainScene") as MainScene!
+                        
+                        /* Ensure correct aspect mode */
+                        scene.scaleMode = .AspectFill
+                        
+                        /* Start game scene */
+                    skView.presentScene(scene)
+                    }
+                }
             }
         }
     
@@ -141,6 +175,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func update(currentTime: CFTimeInterval) {
         timer += 1.0 / 60.0
         badtimer += 1.0 / 60.0
+        damagetimer += 1.0 / 60.0
         
         /*hero.position.y = 20.793*/
         hero.physicsBody!.velocity.dy = 0
@@ -165,15 +200,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 object.position.y = object.position.y - 4
             }
         }
-        
-        
-        
-        
-        
-        
-        
-        /* Called before each frame is rendered */
-        
-        
-        }
     }
+
+}
