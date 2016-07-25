@@ -10,8 +10,7 @@ import Foundation
 import SpriteKit
 
 
-     func creategoodObject() -> SKSpriteNode {
-        var images = ["avocado.png", "banana.png", "watericon.png"]
+    func creategoodObject(images: [String]) -> SKSpriteNode {
         let image = images[Int(arc4random_uniform(UInt32(images.count)))] /*arcrandom fucntions recquire one more thn max*/
         
         let newgoodObstacle = SKSpriteNode(imageNamed: image)
@@ -42,16 +41,31 @@ import SpriteKit
         return newbadObstacle
     }
 
-        
- 
- 
-        
-        
+    func transitionObject () -> SKSpriteNode {
     
+    let newtransitionObstacle = SKSpriteNode(imageNamed: "silkscarf.png")
+    newtransitionObstacle.physicsBody?.contactTestBitMask = 1
+    newtransitionObstacle.physicsBody?.contactTestBitMask = 1
+    newtransitionObstacle.name = "transitionObstacle"
+    newtransitionObstacle.xScale = 0.75
+    newtransitionObstacle.yScale = 0.75
+    newtransitionObstacle.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(newtransitionObstacle.size.width / 2, newtransitionObstacle.size.height / 2))
+    newtransitionObstacle.physicsBody!.affectedByGravity = false /*changed to false so objects can manually fall*/
+    newtransitionObstacle.position = CGPointMake(CGFloat.random(min: 10, max:300), 500)
+    newtransitionObstacle.physicsBody?.mass = 0.005
+    return newtransitionObstacle
+}
 
 
 
 
 
-    
+
+
+
+
+
+
+
+
 
