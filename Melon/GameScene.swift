@@ -25,6 +25,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var transitiontimer: CGFloat = 0
     
+    let hairs = ["", "fro1"]
+    
+    let levels = ["", "level1"]
+    
     /*health bar*/
     var healthBar: SKSpriteNode!
     
@@ -98,7 +102,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             hero.position.x = location.x
                 
         }
-        
     }
     
     func didBeginContact(contact: SKPhysicsContact) {
@@ -136,10 +139,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             else {
                 nodeB.removeFromParent()
-        }
+            }
         }
         
-        /* test code beneath this block for transtioning into nextlevel */
+        /*code beneath this block for transtioning into nextlevel */
         if (nodeA.name == "hero" || nodeB.name == "hero" ) && (nodeB.name == "transitionObstacle" || nodeA.name == "transitionObstacle") {
             
             /*checks collisions so it doesnt go the next level more than once*/
@@ -154,19 +157,34 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     nodeB.removeFromParent()
                 }
                 
+                
                 level += 1
                 
                 levelNode.removeAllChildren()
                 
+                /*test to remove all existing obstacles*/
+                for object in self.children {
+                    if object.name == "goodObstacle" || object.name == "badObstacle" {
+                        object.removeFromParent()
+                    }
+                }
+                
+                /* to reset the score and health bar i added this code*/
+                score = 0
+                health = 1.0
+                hair.xScale = 1.0
+                hair.yScale = 1.0
+                hair.texture = SKTexture(imageNamed: hairs[level]) /*gets the current level and looks up which hair are we on*/
+                
+                /* only here */
+                
                 /* Load Level 1 */
-                let resourcePath = NSBundle.mainBundle().pathForResource("level1", ofType: "sks")
+                let resourcePath = NSBundle.mainBundle().pathForResource(levels[level], ofType: "sks") /*gets and looks up current level in array*/
                 let newLevel = SKReferenceNode (URL: NSURL (fileURLWithPath: resourcePath!))
                 levelNode.addChild(newLevel)
                 
             }
         }
-        
-        
         
         
         /* this restarts game so far if character collides with bad object*/
