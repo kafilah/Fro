@@ -36,6 +36,11 @@
 		6BEDCFAD1D2D52AD0003F190 /* sfx_goal.caf in Resources */ = {isa = PBXBuildFile; fileRef = 6BEDCFAB1D2D52AD0003F190 /* sfx_goal.caf */; };
 		6BEDD41A1D3D715F00CCB0E7 /* pickchar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEDD4191D3D715F00CCB0E7 /* pickchar.swift */; };
 		6BEDD41E1D3D71B000CCB0E7 /* pickchar.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6BEDD41D1D3D71B000CCB0E7 /* pickchar.sks */; };
+		6BF2A8D11D47BBF300821C1A /* level2.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6BF2A8D01D47BBF300821C1A /* level2.sks */; };
+		6BF2A8D31D47BC0500821C1A /* level3.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6BF2A8D21D47BC0500821C1A /* level3.sks */; };
+		6BF2A8D51D47BC1500821C1A /* level4.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6BF2A8D41D47BC1500821C1A /* level4.sks */; };
+		6BF2A8D81D47EDEE00821C1A /* candleExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6BF2A8D61D47EDEE00821C1A /* candleExplosion.sks */; };
+		6BF2A8D91D47EDEE00821C1A /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BF2A8D71D47EDEE00821C1A /* spark.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +75,11 @@
 		6BEDCFAB1D2D52AD0003F190 /* sfx_goal.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sfx_goal.caf; sourceTree = "<group>"; };
 		6BEDD4191D3D715F00CCB0E7 /* pickchar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pickchar.swift; sourceTree = "<group>"; };
 		6BEDD41D1D3D71B000CCB0E7 /* pickchar.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = pickchar.sks; sourceTree = "<group>"; };
+		6BF2A8D01D47BBF300821C1A /* level2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = level2.sks; sourceTree = "<group>"; };
+		6BF2A8D21D47BC0500821C1A /* level3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = level3.sks; sourceTree = "<group>"; };
+		6BF2A8D41D47BC1500821C1A /* level4.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = level4.sks; sourceTree = "<group>"; };
+		6BF2A8D61D47EDEE00821C1A /* candleExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = candleExplosion.sks; sourceTree = "<group>"; };
+		6BF2A8D71D47EDEE00821C1A /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +97,9 @@
 			isa = PBXGroup;
 			children = (
 				6B07E29C1D46563C004C61CE /* level1.sks */,
+				6BF2A8D01D47BBF300821C1A /* level2.sks */,
+				6BF2A8D21D47BC0500821C1A /* level3.sks */,
+				6BF2A8D41D47BC1500821C1A /* level4.sks */,
 			);
 			name = levels;
 			sourceTree = "<group>";
@@ -142,6 +155,8 @@
 				6B739A231D33F79800EDAE3C /* Utils */,
 				6BEDCF931D2D500F0003F190 /* AppDelegate.swift */,
 				6BEDCF951D2D500F0003F190 /* GameScene.sks */,
+				6BF2A8D61D47EDEE00821C1A /* candleExplosion.sks */,
+				6BF2A8D71D47EDEE00821C1A /* spark.png */,
 				6BEDCF971D2D500F0003F190 /* GameScene.swift */,
 				6B9DCF061D34319900551877 /* MainScene.swift */,
 				6BEDD4191D3D715F00CCB0E7 /* pickchar.swift */,
@@ -228,12 +243,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B07E29D1D46563C004C61CE /* level1.sks in Resources */,
+				6BF2A8D51D47BC1500821C1A /* level4.sks in Resources */,
 				6BEDD41E1D3D71B000CCB0E7 /* pickchar.sks in Resources */,
+				6BF2A8D91D47EDEE00821C1A /* spark.png in Resources */,
 				6BEDCF961D2D500F0003F190 /* GameScene.sks in Resources */,
 				6BEDCFAC1D2D52AD0003F190 /* sfx_flap.caf in Resources */,
+				6BF2A8D31D47BC0500821C1A /* level3.sks in Resources */,
 				6BEDCFA21D2D500F0003F190 /* LaunchScreen.storyboard in Resources */,
+				6BF2A8D11D47BBF300821C1A /* level2.sks in Resources */,
 				6BEDCF9F1D2D500F0003F190 /* Assets.xcassets in Resources */,
 				6B9DCF051D342E1D00551877 /* MainScene.sks in Resources */,
+				6BF2A8D81D47EDEE00821C1A /* candleExplosion.sks in Resources */,
 				6BEDCF9D1D2D500F0003F190 /* Main.storyboard in Resources */,
 				6BEDCFAD1D2D52AD0003F190 /* sfx_goal.caf in Resources */,
 			);

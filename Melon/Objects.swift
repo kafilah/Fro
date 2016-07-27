@@ -9,6 +9,10 @@
 import Foundation
 import SpriteKit
 
+class FallingObject : SKSpriteNode {
+    var image: String = ""
+}
+
 
     func creategoodObject(images: [String]) -> SKSpriteNode {
         let image = images[Int(arc4random_uniform(UInt32(images.count)))] /*arcrandom fucntions recquire one more thn max*/
@@ -26,9 +30,13 @@ import SpriteKit
     }
 
 
-    func createbadObject() -> SKSpriteNode {
-        
-        let newbadObstacle = SKSpriteNode(imageNamed: "gum.png")
+func createbadObject(images: [String]) -> SKSpriteNode {
+    
+        /* i did the same thing as the good object because i am calling the actual objects in the gamescene swift */ 
+        let image = images[Int(arc4random_uniform(UInt32(images.count)))] /*arcrandom fucntions recquire one more thn max*/
+    
+        let newbadObstacle = FallingObject(imageNamed: image)
+        newbadObstacle.image = image
         newbadObstacle.physicsBody?.contactTestBitMask = 1
         newbadObstacle.physicsBody?.contactTestBitMask = 1
         newbadObstacle.name = "badObstacle"

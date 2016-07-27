@@ -85,6 +85,7 @@ class pickchar: SKScene {
             
             /* Load Game scene */
             let scene = GameScene(fileNamed:"GameScene") as GameScene!
+            scene.level = 0
             
             /* Ensure correct aspect mode */
             scene.scaleMode = .AspectFill

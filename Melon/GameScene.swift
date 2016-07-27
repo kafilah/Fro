@@ -25,9 +25,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var transitiontimer: CGFloat = 0
     
-    let hairs = ["", "fro1"]
+    let hairs = ["", "fro1", "fro2", "fro3" , "fro4"]
     
-    let levels = ["", "level1"]
+    let levels = ["", "level1", "level2", "level3", "level4"]
     
     /*health bar*/
     var healthBar: SKSpriteNode!
@@ -190,17 +190,44 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         /* this restarts game so far if character collides with bad object*/
         if (nodeA.name == "hero" || nodeB.name == "hero" ) && (nodeB.name == "badObstacle" || nodeA.name == "badObstacle") {
             
-            if nodeA.name == "badObstacle" {
-                nodeA.removeFromParent()
-            }
-            else {
-                nodeB.removeFromParent()
-            }
-            
-            /*added to measure amount of contact with bad obstavle before decreasing health bar*/
+            /*added to measure amount of contact with bad obstacle before decreasing health bar*/
             if damagetimer >= 0.5{
                 
                 damagetimer = 0
+            
+            var image: String
+            if nodeA.name == "badObstacle" {
+                nodeA.removeFromParent()
+                image = (nodeA as! FallingObject).image
+            }
+            else {
+                nodeB.removeFromParent()
+                image = (nodeB as! FallingObject).image
+                
+            }
+                
+            /*this decrease scale of hair if it comes into contact with a bad object*/
+                hair.xScale -= 0.1
+                hair.yScale -= 0.02
+            
+            
+          
+            /*test for specifying a certain image*/
+            
+            if image == "candle.png" {
+                /* Load our particle effect */
+                let particles = SKEmitterNode(fileNamed: "candleExplosion")!
+                
+                /* Convert node location (currently inside Level 1, to scene space) */
+                particles.position = convertPoint(hair.position, fromNode: hair)
+                
+                /* Restrict total particles to reduce runtime of particle */
+                particles.numParticlesToEmit = 50
+                
+                /* Add particles to scene */
+                addChild(particles)
+            }
+        
             
                 /*decrease health*/
                 health -= 0.1
@@ -236,18 +263,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
         /*make good objects fall slower*/
+        /*also edit stuff for levels*/
         if level == 0 {
             if timer > 0.5 {
-                self.addChild(creategoodObject(["avocado.png", "banana.png", "watericon.png"]))
+                self.addChild(creategoodObject(["avocado.png", "watericon.png"]))
                 timer = 0}
             
             if badtimer > 1.5 {
-                self.addChild(createbadObject())
+                self.addChild(createbadObject(["gum.png"]))
                 badtimer = 0}
             
             if transitiontimer > 5.0 {
                 self.addChild(transitionObject()) /*function*/
-                transitiontimer = 0}
+                transitiontimer = 0} /*always*/
         }
         else if level == 1 {
             if timer > 0.5 {
@@ -255,13 +283,53 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 timer = 0}
             
             if badtimer > 1.0 {
-                self.addChild(createbadObject())
+                self.addChild(createbadObject(["gum.png", "candle.png"]))
                 badtimer = 0}
             
-            if transitiontimer > 5.0 {
+            if transitiontimer > 15.0 {
                 self.addChild(transitionObject()) /*function*/
                 transitiontimer = 0}
         }
+        else if level == 2 {
+            if timer > 0.5 {
+                self.addChild(creategoodObject(["banana.png", "watericon.png", "avocado.png"]))
+                timer = 0}
+            
+            if badtimer > 1.0 {
+                self.addChild(createbadObject(["gum.png"]))
+                badtimer = 0}
+            
+            if transitiontimer > 20.0 {
+                self.addChild(transitionObject()) /*function*/
+                transitiontimer = 0}
+        }
+        else if level == 3 {
+            if timer > 0.5 {
+                self.addChild(creategoodObject(["banana.png", "watericon.png"]))
+                timer = 0}
+            
+            if badtimer > 1.0 {
+                self.addChild(createbadObject(["gum.png"]))
+                badtimer = 0}
+            
+            if transitiontimer > 30.0 {
+                self.addChild(transitionObject()) /*function*/
+                transitiontimer = 0}
+        }
+        else if level == 4 {
+            if timer > 0.5 {
+                self.addChild(creategoodObject(["banana.png", "watericon.png"]))
+                timer = 0}
+            
+            if badtimer > 1.0 {
+                self.addChild(createbadObject(["gum.png"]))
+                badtimer = 0}
+            
+            if transitiontimer > 40.0 {
+                self.addChild(transitionObject()) /*function*/
+                transitiontimer = 0}
+        }
+        
     
         
         
@@ -276,6 +344,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             if object.name == "transitionObstacle" {   /*actual name of obstacle*/
                 object.position.y = object.position.y - 3
+                
+                object.position.x += CGFloat(sin(currentTime * 2) * 3)
             }
         }
     }
