@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B040A591D4951C90093A265 /* characteractions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6B040A581D4951C90093A265 /* characteractions.sks */; };
+		6B040A5B1D49522C0093A265 /* growflowers.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6B040A5A1D49522C0093A265 /* growflowers.sks */; };
 		6B07E29D1D46563C004C61CE /* level1.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6B07E29C1D46563C004C61CE /* level1.sks */; };
 		6B739A331D33F79800EDAE3C /* MSButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B739A241D33F79800EDAE3C /* MSButtonNode.swift */; };
 		6B739A341D33F79800EDAE3C /* MSReferenceNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B739A251D33F79800EDAE3C /* MSReferenceNode.swift */; };
@@ -44,6 +46,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6B040A581D4951C90093A265 /* characteractions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = characteractions.sks; sourceTree = "<group>"; };
+		6B040A5A1D49522C0093A265 /* growflowers.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = growflowers.sks; path = ../growflowers.sks; sourceTree = "<group>"; };
 		6B07E29C1D46563C004C61CE /* level1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = level1.sks; sourceTree = "<group>"; };
 		6B739A241D33F79800EDAE3C /* MSButtonNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSButtonNode.swift; sourceTree = "<group>"; };
 		6B739A251D33F79800EDAE3C /* MSReferenceNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSReferenceNode.swift; sourceTree = "<group>"; };
@@ -155,6 +159,8 @@
 				6B739A231D33F79800EDAE3C /* Utils */,
 				6BEDCF931D2D500F0003F190 /* AppDelegate.swift */,
 				6BEDCF951D2D500F0003F190 /* GameScene.sks */,
+				6B040A5A1D49522C0093A265 /* growflowers.sks */,
+				6B040A581D4951C90093A265 /* characteractions.sks */,
 				6BF2A8D61D47EDEE00821C1A /* candleExplosion.sks */,
 				6BF2A8D71D47EDEE00821C1A /* spark.png */,
 				6BEDCF971D2D500F0003F190 /* GameScene.swift */,
@@ -247,6 +253,7 @@
 				6BEDD41E1D3D71B000CCB0E7 /* pickchar.sks in Resources */,
 				6BF2A8D91D47EDEE00821C1A /* spark.png in Resources */,
 				6BEDCF961D2D500F0003F190 /* GameScene.sks in Resources */,
+				6B040A591D4951C90093A265 /* characteractions.sks in Resources */,
 				6BEDCFAC1D2D52AD0003F190 /* sfx_flap.caf in Resources */,
 				6BF2A8D31D47BC0500821C1A /* level3.sks in Resources */,
 				6BEDCFA21D2D500F0003F190 /* LaunchScreen.storyboard in Resources */,
@@ -256,6 +263,7 @@
 				6BF2A8D81D47EDEE00821C1A /* candleExplosion.sks in Resources */,
 				6BEDCF9D1D2D500F0003F190 /* Main.storyboard in Resources */,
 				6BEDCFAD1D2D52AD0003F190 /* sfx_goal.caf in Resources */,
+				6B040A5B1D49522C0093A265 /* growflowers.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
