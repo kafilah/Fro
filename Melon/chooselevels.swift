@@ -1,39 +1,40 @@
 //
-//  MainScene.swift
+//  chooselevels.swift
 //  Melon
 //
-//  Created by Kafilah on 7/11/16.
+//  Created by Kafilah on 7/28/16.
 //  Copyright © 2016 Kafilah. All rights reserved.
 //
 
+import Foundation
 import SpriteKit
 
-class MainScene: SKScene {
+class chooselevels: SKScene {
     
     /* UI Connections */
-    var buttonPlay: MSButtonNode!
+    var level0button: MSButtonNode!
     
-    var levelButton: MSButtonNode!
+    var level1button: MSButtonNode!
+    
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         
         /* Set UI connections */
-        buttonPlay = self.childNodeWithName("buttonPlay") as! MSButtonNode
+        level0button = self.childNodeWithName("level0button") as! MSButtonNode
         
-        /*Set Ui connection to get to chooselevel page*/
-        levelButton = self.childNodeWithName("levelButton") as! MSButtonNode
+        level1button = self.childNodeWithName("level1button") as! MSButtonNode
         
-        /* Setup restart button selection handler */
-        buttonPlay.selectedHandler = {
-            
+        /* Setup button that goes to the level that is selected if clicking on the button */
+        level0button.selectedHandler = {
             
             /*copy this to create it to go back to main scene when objects are colliding*/
             /* Grab reference to our SpriteKit view */
             let skView = self.view as SKView!
             
             /* Load Game scene */
-            let scene = pickchar(fileNamed:"pickchar") as pickchar!
+            let scene = GameScene(fileNamed:"GameScene") as GameScene!
+            scene.level = 0 /*loads the first level*/
             
             /* Ensure correct aspect mode */
             scene.scaleMode = .AspectFill
@@ -46,16 +47,15 @@ class MainScene: SKScene {
             skView.presentScene(scene)
         }
         
-        
-        /*Setup chooselevels button play */
-        levelButton.selectedHandler = {
+        level1button.selectedHandler = {
             
             /*copy this to create it to go back to main scene when objects are colliding*/
             /* Grab reference to our SpriteKit view */
             let skView = self.view as SKView!
             
-            /* Load Choose levels scene scene */
-            let scene = chooselevels(fileNamed:"chooselevels") as chooselevels!
+            /* Load Game scene */
+            let scene = GameScene(fileNamed:"GameScene") as GameScene!
+            scene.level = 1 /*loads the second level*/
             
             /* Ensure correct aspect mode */
             scene.scaleMode = .AspectFill
@@ -68,6 +68,6 @@ class MainScene: SKScene {
             skView.presentScene(scene)
         }
         
+     
     }
-    
 }

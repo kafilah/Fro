@@ -88,7 +88,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             hero.position.x = location.x
             
-        
         }
     }
     
