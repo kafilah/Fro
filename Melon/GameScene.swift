@@ -9,6 +9,16 @@
 
 import SpriteKit
 
+
+let hairColors = [SKColor.cyanColor(),
+                  SKColorWithRGB(200, g: 100, b: 10),
+                  SKColor.cyanColor(),
+                  SKColor.cyanColor(),
+                  SKColor.cyanColor(),
+                SKColor.cyanColor(),
+                ]
+
+
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var hero: SKSpriteNode!
@@ -23,9 +33,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var damagetimer: CGFloat = 0
     
+    var jumptimer: CGFloat = 0
+    
     var transitiontimer: CGFloat = 0
     
+    var bmtimer: CGFloat = 0
+    
     let hairs = ["", "fro1", "fro2", "fro3" , "fro4"]
+    
     
     let levels = ["", "level1", "level2", "level3", "level4"]
     
@@ -57,26 +72,38 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func didMoveToView(view: SKView) {
     /* Set up your scene here */
         
-    /* Recursive node search for 'hero' (child of referenced node) */
-    hero = self.childNodeWithName("//hero") as! SKSpriteNode
+        /* Recursive node search for 'hero' (child of referenced node) */
+        hero = self.childNodeWithName("//hero") as! SKSpriteNode
+            
+        /* Set reference to hair node which is attached to hero sprite node*/
+        hair = self.childNodeWithName("//hair") as! SKSpriteNode
         
-    /* Set reference to hair node which is attached to hero sprite node*/
-    hair = self.childNodeWithName("//hair") as! SKSpriteNode
-        
-    /*Set reference to healthBar node*/
-    healthBar = self.childNodeWithName("//healthBar") as! SKSpriteNode
-        
-    /*connect the scorelabel*/
-    scoreLabel = childNodeWithName("//scoreLabel") as! SKLabelNode
-        
-    /* Set reference to the level loader node */
-    levelNode = childNodeWithName("//levelNode")
-        
-    /* Set physics contact delegate */
-    physicsWorld.contactDelegate = self
+        /*sets reference to haric olors. must do same with skin*/
+        hair.color = hairColors[currenthair]
+        hero.texture = SKTexture(imageNamed: skinOptions[currentskin])
+            
+        /*Set reference to healthBar node*/
+        healthBar = self.childNodeWithName("//healthBar") as! SKSpriteNode
+            
+        /*connect the scorelabel*/
+        scoreLabel = childNodeWithName("//scoreLabel") as! SKLabelNode
+            
+        /* Set reference to the level loader node */
+        levelNode = childNodeWithName("//levelNode")
+            
+        /* Set physics contact delegate */
+        physicsWorld.contactDelegate = self
         
         /*allows us to see whats happening in terms of phsyics in games*/
         view.showsPhysics = false /*change to true if i want too see whats happening*/
+        
+        if level > 0 {
+            levelNode.removeAllChildren()
+            /* Load Level 1 */
+            let resourcePath = NSBundle.mainBundle().pathForResource(levels[level], ofType: "sks") /*gets and looks up current level in array*/
+            let newLevel = SKReferenceNode (URL: NSURL (fileURLWithPath: resourcePath!))
+            levelNode.addChild(newLevel)
+        }
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -87,6 +114,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let location = touch.locationInNode(self)
             
             hero.position.x = location.x
+            
+            jumptimer = 0
+            
+            
             
         }
     }
@@ -99,8 +130,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             
             hero.position.x = location.x
+            
                 
         }
+    }
+    
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        
+        if jumptimer < 0.5 {
+        
+        hero.runAction(SKAction.sequence([
+            SKAction.moveBy(CGVector(dx: 0, dy: 50), duration: 0.5),
+            SKAction.moveBy(CGVector(dx: 0, dy: -50), duration: 0.5),
+            ]))
+    }
     }
     
     func didBeginContact(contact: SKPhysicsContact) {
@@ -141,6 +184,33 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
         }
         
+        /*Code for moving bad object*/
+        if (nodeA.name == "hero" || nodeB.name == "hero" ) && (nodeB.name == "badmovingObstacle" || nodeA.name == "badmovingObstacle") {
+            
+            /* Increment Score */
+            score += 1
+            
+            let hair = hero.childNodeWithName("hair")!
+            
+            if score % 1 == 0 {
+                
+                hair.xScale += 0.01
+                hair.yScale += 0.002
+            }
+            
+            
+            /* deletes nodes when collide with character*/
+            if nodeA.name == "badmovingObstacle" {
+                nodeA.removeFromParent()
+            }
+            else {
+                nodeB.removeFromParent()
+            }
+        }
+
+            
+     
+        
         /*code beneath this block for transtioning into nextlevel */
         if (nodeA.name == "hero" || nodeB.name == "hero" ) && (nodeB.name == "transitionObstacle" || nodeA.name == "transitionObstacle") {
             
@@ -158,8 +228,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 
                 
                 level += 1
-                
-                levelNode.removeAllChildren()
+              
                 
                 /*test to remove all existing obstacles*/
                 for object in self.children {
@@ -174,9 +243,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 hair.xScale = 1.0
                 hair.yScale = 1.0
                 hair.texture = SKTexture(imageNamed: hairs[level]) /*gets the current level and looks up which hair are we on*/
+                hair.color = hairColors[level]
                 
                 /* only here */
                 
+                levelNode.removeAllChildren()
                 /* Load Level 1 */
                 let resourcePath = NSBundle.mainBundle().pathForResource(levels[level], ofType: "sks") /*gets and looks up current level in array*/
                 let newLevel = SKReferenceNode (URL: NSURL (fileURLWithPath: resourcePath!))
@@ -256,9 +327,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         badtimer += 1.0 / 60.0
         damagetimer += 1.0 / 60.0
         transitiontimer += 1.0 / 60.0
+        jumptimer += 1.0/60.0
+        bmtimer += 1.0/60.0
         
         /*hero.position.y = 20.793*/
-        hero.physicsBody!.velocity.dy = 0
+        hero.physicsBody!.velocity.dy = 0 /*just edited this*/
         
         
         /*make good objects fall slower*/
@@ -268,26 +341,31 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.addChild(creategoodObject(["avocado.png", "watericon.png"]))
                 timer = 0}
             
-            if badtimer > 1.5 {
+            if badtimer > 1.0 {
                 self.addChild(createbadObject(["gum.png"]))
                 badtimer = 0}
             
             if transitiontimer > 5.0 {
                 self.addChild(transitionObject()) /*function*/
                 transitiontimer = 0} /*always*/
-        }
+            }
+        
         else if level == 1 {
             if timer > 0.5 {
                 self.addChild(creategoodObject(["banana.png", "watericon.png"]))
                 timer = 0}
             
-            if badtimer > 1.0 {
+            if badtimer > 0.8 {
                 self.addChild(createbadObject(["gum.png", "candle.png"]))
                 badtimer = 0}
             
             if transitiontimer > 15.0 {
                 self.addChild(transitionObject()) /*function*/
                 transitiontimer = 0}
+            
+           /* if bmtimer > 3.0 {
+                self.addChild(badmovingObject()) /*function*/
+                bmtimer = 0} /*always*/ */
         }
         else if level == 2 {
             if timer > 0.5 {
@@ -346,6 +424,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 
                 object.position.x += CGFloat(sin(currentTime * 2) * 3)
             }
+            
+            if object.name == "badmovingObstacle" {   /*actual name of obstacle*/
+                object.position.y = object.position.x - 3
+                
+                object.position.x += CGFloat(sin(currentTime * 2) * 10)
+            }
+            
         }
     }
 

@@ -65,6 +65,22 @@ func createbadObject(images: [String]) -> SKSpriteNode {
 }
 
 
+func  badmovingObject () -> SKSpriteNode {
+    
+    let newmovingObstacle = SKSpriteNode(imageNamed: "blowfryer.png")
+    newmovingObstacle.physicsBody?.contactTestBitMask = 1
+    newmovingObstacle.physicsBody?.contactTestBitMask = 1
+    newmovingObstacle.name = "badmovingObstacle"
+    newmovingObstacle.xScale = 0.75
+    newmovingObstacle.yScale = 0.75
+    newmovingObstacle.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(newmovingObstacle.size.width / 2, newmovingObstacle.size.height / 2))
+    newmovingObstacle.physicsBody!.affectedByGravity = false /*changed to false so objects can manually fall*/
+    newmovingObstacle.position = CGPointMake(CGFloat.random(min: 10, max:300), 500)
+    newmovingObstacle.physicsBody?.mass = 0.005
+    return newmovingObstacle
+}
+
+
 
 
 
