@@ -7,6 +7,7 @@
 //
 
 import SpriteKit
+import UIKit
 
 class MainScene: SKScene {
     
@@ -38,10 +39,6 @@ class MainScene: SKScene {
             /* Ensure correct aspect mode */
             scene.scaleMode = .AspectFill
             
-            /* Show debug */
-            skView.showsDrawCount = true
-            skView.showsFPS = true
-            
             /* Start game scene */
             skView.presentScene(scene)
         }
@@ -59,10 +56,6 @@ class MainScene: SKScene {
             
             /* Ensure correct aspect mode */
             scene.scaleMode = .AspectFill
-            
-            /* Show debug */
-            skView.showsDrawCount = true
-            skView.showsFPS = true
             
             /* Start game scene */
             skView.presentScene(scene)

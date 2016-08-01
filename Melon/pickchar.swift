@@ -8,6 +8,7 @@
 
 import Foundation
 import SpriteKit
+import UIKit
 
 var currentskin = 0
 var currenthair = 0
@@ -52,6 +53,9 @@ class pickchar: SKScene {
         
         hairs = self.childNodeWithName("//hairs") as! SKSpriteNode
         
+        hairs.color = hairColors[currenthair]
+        skins.texture = SKTexture(imageNamed: skinOptions[currentskin])
+        
         /* Setup restart button selection handler */
         next.selectedHandler = {
             
@@ -65,10 +69,6 @@ class pickchar: SKScene {
             
             /* Ensure correct aspect mode */
             scene.scaleMode = .AspectFill
-            
-            /* Show debug */
-            skView.showsDrawCount = true
-            skView.showsFPS = true
             
             /* Start game scene */
             skView.presentScene(scene)
@@ -87,7 +87,7 @@ class pickchar: SKScene {
             /* changes the texture of skin when clicking on customize skin button*/
             self.skins.texture = SKTexture(imageNamed: skinOptions[currentskin])
         }
-        self.skins.texture = SKTexture(imageNamed: skinOptions[currentskin])
+        
         
         /*Setup button to move through array of hair objects I have created*/
         customizeHair.selectedHandler = {
@@ -102,6 +102,38 @@ class pickchar: SKScene {
             self.hairs.color = hairColors[currenthair]
         }
         self.hairs.color = hairColors[currenthair]
+    }
+    
+    /*CODE ADDED TO TEST OUT SOCIAL MEDIA SHIT AND SHARING! WTF JUST WORK LOL! */
+    
+    func socialShare(sharingText: String?, sharingImage: UIImage?, sharingURL: NSURL?) {
+        var sharingItems = [AnyObject]()
+        
+        
+        
+        if let text = sharingText {
+            sharingItems.append(text)
+        }
+        if let image = sharingImage {
+            sharingItems.append(image)
+        }
+        if let url = sharingURL {
+            sharingItems.append(url)
+        }
+        
+        let activityViewController = UIActivityViewController(activityItems: sharingItems, applicationActivities: nil)
+        activityViewController.excludedActivityTypes = [UIActivityTypeCopyToPasteboard,UIActivityTypeAirDrop,UIActivityTypeAddToReadingList,
+                                                        UIActivityTypeAssignToContact,UIActivityTypePostToTencentWeibo,UIActivityTypePostToVimeo,UIActivityTypePrint,UIActivityTypeSaveToCameraRoll,UIActivityTypePostToWeibo]
+        self.presentViewController(activityViewController, animated: true, completion: nil)
+    }
+    
+    
+    
+    
+    @IBAction func clickShare(sender: AnyObject) {
+        
+        
+        socialShare("Text to share #Hashtag", sharingImage: UIImage(named: "image"), sharingURL: NSURL(string: "http://itunes.apple.com/app/"))
     }
     
 }

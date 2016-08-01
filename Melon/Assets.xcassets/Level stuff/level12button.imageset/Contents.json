@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "hairzhi.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "level12button.png",
       "scale" : "2x"
     },
     {

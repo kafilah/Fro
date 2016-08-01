@@ -39,10 +39,6 @@ class chooselevels: SKScene {
             /* Ensure correct aspect mode */
             scene.scaleMode = .AspectFill
             
-            /* Show debug */
-            skView.showsDrawCount = true
-            skView.showsFPS = true
-            
             /* Start game scene */
             skView.presentScene(scene)
         }
@@ -59,10 +55,6 @@ class chooselevels: SKScene {
             
             /* Ensure correct aspect mode */
             scene.scaleMode = .AspectFill
-            
-            /* Show debug */
-            skView.showsDrawCount = true
-            skView.showsFPS = true
             
             /* Start game scene */
             skView.presentScene(scene)

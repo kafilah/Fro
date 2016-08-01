@@ -8,14 +8,23 @@
 
 
 import SpriteKit
+import UIKit
 
 
 let hairColors = [SKColor.cyanColor(),
-                  SKColorWithRGB(200, g: 100, b: 10),
-                  SKColor.cyanColor(),
-                  SKColor.cyanColor(),
-                  SKColor.cyanColor(),
-                SKColor.cyanColor(),
+                  SKColorWithRGB( 153,  g: 0, b: 76),
+                  SKColorWithRGB( 0,  g: 0, b: 0),
+                  SKColorWithRGB( 255,  g: 255, b: 255),
+                  SKColorWithRGB( 255,  g: 204, b: 255),
+                  SKColorWithRGB( 153,  g: 0, b: 76),
+                  SKColorWithRGB( 153,  g: 76, b: 0),
+                  SKColorWithRGB( 102,  g: 255, b: 178),
+                  SKColorWithRGB( 0,  g: 204, b: 102),
+                  SKColorWithRGB( 102,  g: 51, b: 0),
+                  SKColorWithRGB( 51,  g: 0, b: 102),
+                  SKColorWithRGB( 255,  g: 255, b: 51),
+                  SKColorWithRGB( 192,  g: 192, b: 192),
+                  SKColorWithRGB( 204,  g: 229, b: 255),
                 ]
 
 
@@ -24,6 +33,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var hero: SKSpriteNode!
     
     var hair: SKSpriteNode!
+    
+    /*setting the functionality for the home button*/
+    var home_button1: MSButtonNode!
     
     var sinceTouch : CFTimeInterval = 0
     
@@ -72,16 +84,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func didMoveToView(view: SKView) {
     /* Set up your scene here */
         
+        /*set reference to home and setting buttons*/
+        home_button1 = self.childNodeWithName("//home_button1") as! MSButtonNode
+        
         /* Recursive node search for 'hero' (child of referenced node) */
         hero = self.childNodeWithName("//hero") as! SKSpriteNode
             
         /* Set reference to hair node which is attached to hero sprite node*/
         hair = self.childNodeWithName("//hair") as! SKSpriteNode
         
-        /*sets reference to haric olors. must do same with skin*/
+        /*sets reference to hair colors. must do same with skin*/
         hair.color = hairColors[currenthair]
+        
+        /*sets reference to skin colors*/
         hero.texture = SKTexture(imageNamed: skinOptions[currentskin])
-            
+        
+        
         /*Set reference to healthBar node*/
         healthBar = self.childNodeWithName("//healthBar") as! SKSpriteNode
             
@@ -103,6 +121,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let resourcePath = NSBundle.mainBundle().pathForResource(levels[level], ofType: "sks") /*gets and looks up current level in array*/
             let newLevel = SKReferenceNode (URL: NSURL (fileURLWithPath: resourcePath!))
             levelNode.addChild(newLevel)
+        }
+        
+        /*directs the player back to the homepage! lets go kfeelz!!*/
+        home_button1.selectedHandler = {
+            
+            /* Grab reference to our SpriteKit view */
+            let skView = self.view as SKView!
+            
+            /* Load Game scene */
+            let scene = MainScene(fileNamed:"MainScene") as MainScene!
+            
+            /* Ensure correct aspect mode */
+            scene.scaleMode = .AspectFill
+            
+            /* Start game scene */
+            skView.presentScene(scene)
         }
     }
     
@@ -183,30 +217,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 nodeB.removeFromParent()
             }
         }
-        
-        /*Code for moving bad object*/
-        if (nodeA.name == "hero" || nodeB.name == "hero" ) && (nodeB.name == "badmovingObstacle" || nodeA.name == "badmovingObstacle") {
-            
-            /* Increment Score */
-            score += 1
-            
-            let hair = hero.childNodeWithName("hair")!
-            
-            if score % 1 == 0 {
-                
-                hair.xScale += 0.01
-                hair.yScale += 0.002
-            }
-            
-            
-            /* deletes nodes when collide with character*/
-            if nodeA.name == "badmovingObstacle" {
-                nodeA.removeFromParent()
-            }
-            else {
-                nodeB.removeFromParent()
-            }
-        }
 
             
      
@@ -243,7 +253,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 hair.xScale = 1.0
                 hair.yScale = 1.0
                 hair.texture = SKTexture(imageNamed: hairs[level]) /*gets the current level and looks up which hair are we on*/
-                hair.color = hairColors[level]
+                
                 
                 /* only here */
                 
@@ -258,7 +268,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
         /* this restarts game so far if character collides with bad object*/
-        if (nodeA.name == "hero" || nodeB.name == "hero" ) && (nodeB.name == "badObstacle" || nodeA.name == "badObstacle") {
+        if (nodeA.name == "hero" || nodeB.name == "hero" ) && (nodeB.name == "badObstacle" || nodeA.name == "badObstacle" || nodeB.name == "badmovingObstacle" || nodeA.name == "badmovingObstacle") {
             
             /*added to measure amount of contact with bad obstacle before decreasing health bar*/
             if damagetimer >= 0.5{
@@ -266,7 +276,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 damagetimer = 0
             
             var image: String
-            if nodeA.name == "badObstacle" {
+            if nodeA.name == "badObstacle" || nodeA.name == "badmovingObstacle" {
                 nodeA.removeFromParent()
                 image = (nodeA as! FallingObject).image
             }
@@ -363,9 +373,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.addChild(transitionObject()) /*function*/
                 transitiontimer = 0}
             
-           /* if bmtimer > 3.0 {
+            /*test code for blowdryer obstacle*/
+            if bmtimer > 3.0 {
                 self.addChild(badmovingObject()) /*function*/
-                bmtimer = 0} /*always*/ */
+                bmtimer = 0} /*always*/
         }
         else if level == 2 {
             if timer > 0.5 {
@@ -412,7 +423,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         for object in self.children {
             if object.name == "goodObstacle" {
-                object.position.y = object.position.y - 2
+                object.position.y = object.position.y - 2 - CGFloat(level) * 0.5 /*controls speed of objects by level*/
             }
             
             if object.name == "badObstacle" {
@@ -424,12 +435,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 
                 object.position.x += CGFloat(sin(currentTime * 2) * 3)
             }
-            
-            if object.name == "badmovingObstacle" {   /*actual name of obstacle*/
-                object.position.y = object.position.x - 3
-                
-                object.position.x += CGFloat(sin(currentTime * 2) * 10)
-            }
+        
             
         }
     }
