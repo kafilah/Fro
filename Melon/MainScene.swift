@@ -16,6 +16,15 @@ class MainScene: SKScene {
     
     var levelButton: MSButtonNode!
     
+    var directory_button: MSButtonNode!
+    
+    /*this function allows me to link a button with a website*/
+    @IBAction func WebLink(sender: AnyObject) {
+        if let url = NSURL(string: "http://kafilah.me") {
+            UIApplication.sharedApplication().openURL(url)
+        }
+    }
+    
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         
@@ -24,6 +33,16 @@ class MainScene: SKScene {
         
         /*Set Ui connection to get to chooselevel page*/
         levelButton = self.childNodeWithName("levelButton") as! MSButtonNode
+        
+        /*Set Ui connection to get directory button to link to website*/
+        directory_button = self.childNodeWithName("directory_button") as! MSButtonNode
+        
+        /* attempt to connect directory to site*/
+        directory_button.selectedHandler = {
+            self.WebLink("https://kafilah.me")
+            
+        }
+        
         
         /* Setup restart button selection handler */
         buttonPlay.selectedHandler = {
@@ -60,7 +79,6 @@ class MainScene: SKScene {
             /* Start game scene */
             skView.presentScene(scene)
         }
-        
     }
     
 }
