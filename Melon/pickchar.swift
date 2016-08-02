@@ -20,7 +20,8 @@ class pickchar: SKScene {
     /* UI Connections */
     var next: MSButtonNode!
     
-    
+    /*setting the functionality for the home button*/
+    var home_button1: MSButtonNode!
     
     /*this creates UI connection for skin and skincustomize button*/
     var skins: SKSpriteNode!
@@ -38,6 +39,9 @@ class pickchar: SKScene {
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
+        
+        /*set reference to home and setting buttons*/
+        home_button1 = self.childNodeWithName("//home_button1") as! MSButtonNode
         
         /* Set UI connections */
         next = self.childNodeWithName("next") as! MSButtonNode
@@ -102,5 +106,21 @@ class pickchar: SKScene {
             self.hairs.color = hairColors[currenthair]
         }
         self.hairs.color = hairColors[currenthair]
+        
+        /*directs the player back to the homepage! lets go kfeelz!!*/
+        home_button1.selectedHandler = {
+            
+            /* Grab reference to our SpriteKit view */
+            let skView = self.view as SKView!
+            
+            /* Load Game scene */
+            let scene = MainScene(fileNamed:"MainScene") as MainScene!
+            
+            /* Ensure correct aspect mode */
+            scene.scaleMode = .AspectFill
+            
+            /* Start game scene */
+            skView.presentScene(scene)
+        }
     }
 }

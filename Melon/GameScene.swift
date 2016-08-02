@@ -174,8 +174,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if jumptimer < 0.5 {
         
         hero.runAction(SKAction.sequence([
-            SKAction.moveBy(CGVector(dx: 0, dy: 50), duration: 0.5),
-            SKAction.moveBy(CGVector(dx: 0, dy: -50), duration: 0.5),
+            SKAction.moveBy(CGVector(dx: 0, dy: 100), duration: 0.5),
+            SKAction.moveBy(CGVector(dx: 0, dy: -100), duration: 0.5),
             ]))
     }
     }

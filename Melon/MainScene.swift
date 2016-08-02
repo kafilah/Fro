@@ -16,6 +16,10 @@ class MainScene: SKScene {
     
     var levelButton: MSButtonNode!
     
+    /*setting the functionality for the home button*/
+    var home_button1: MSButtonNode!
+    
+    
     var directory_button: MSButtonNode!
     
     /*this function allows me to link a button with a website*/
@@ -27,6 +31,9 @@ class MainScene: SKScene {
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
+        
+        /*set reference to home and setting buttons*/
+        home_button1 = self.childNodeWithName("//home_button1") as! MSButtonNode
         
         /* Set UI connections */
         buttonPlay = self.childNodeWithName("buttonPlay") as! MSButtonNode
@@ -72,6 +79,22 @@ class MainScene: SKScene {
             
             /* Load Choose levels scene scene */
             let scene = chooselevels(fileNamed:"chooselevels") as chooselevels!
+            
+            /* Ensure correct aspect mode */
+            scene.scaleMode = .AspectFill
+            
+            /* Start game scene */
+            skView.presentScene(scene)
+        }
+        
+        /*directs the player back to the homepage! lets go kfeelz!!*/
+        home_button1.selectedHandler = {
+            
+            /* Grab reference to our SpriteKit view */
+            let skView = self.view as SKView!
+            
+            /* Load Game scene */
+            let scene = MainScene(fileNamed:"MainScene") as MainScene!
             
             /* Ensure correct aspect mode */
             scene.scaleMode = .AspectFill
