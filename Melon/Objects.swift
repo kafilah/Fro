@@ -17,8 +17,9 @@ class FallingObject : SKSpriteNode {
     func creategoodObject(images: [String]) -> SKSpriteNode {
         let image = images[Int(arc4random_uniform(UInt32(images.count)))] /*arcrandom fucntions recquire one more thn max*/
         
-        let newgoodObstacle = SKSpriteNode(imageNamed: image)
+        let newgoodObstacle = FallingObject(imageNamed: image)
         newgoodObstacle.physicsBody?.contactTestBitMask = 1
+        newgoodObstacle.image = image /*setting image property for all good object*/
         newgoodObstacle.name = "goodObstacle"
         newgoodObstacle.xScale = 0.3
         newgoodObstacle.yScale = 0.4

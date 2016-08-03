@@ -10,6 +10,11 @@
 import SpriteKit
 import UIKit
 
+/* Tracking enum for game state */
+enum GameState {
+    case Ready, Pause, Playing, GameOver, Hidden
+}
+
 
 let hairColors = [SKColor.cyanColor(),
                   SKColorWithRGB( 153,  g: 0, b: 76),
@@ -33,6 +38,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var hero: SKSpriteNode!
     
     var hair: SKSpriteNode!
+    
+    /* Game management */
+    var state: GameState = .Playing
+    
+    var pause_button: MSButtonNode!
     
     /*setting the functionality for the home button*/
     var home_button1: MSButtonNode!
@@ -87,6 +97,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         /*set reference to home and setting buttons*/
         home_button1 = self.childNodeWithName("//home_button1") as! MSButtonNode
         
+        /*sets reference to play/pause button*/
+        /* UI game objects */
+        pause_button = childNodeWithName("pause_button") as! MSButtonNode
+        
+        
         /* Recursive node search for 'hero' (child of referenced node) */
         hero = self.childNodeWithName("//hero") as! SKSpriteNode
             
@@ -98,7 +113,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         /*sets reference to skin colors*/
         hero.texture = SKTexture(imageNamed: skinOptions[currentskin])
-        
         
         /*Set reference to healthBar node*/
         healthBar = self.childNodeWithName("//healthBar") as! SKSpriteNode
@@ -138,10 +152,38 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             /* Start game scene */
             skView.presentScene(scene)
         }
+        
+        pause_button.selectedHandler = {
+            if self.state == .Pause
+            {
+                self.state = .Playing
+            }
+            else {
+                self.state = .Pause
+            }
+        }
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         /* Called when a touch begins */
+        
+        /*edits game play*/
+        /* Game not ready to play */
+        if state == .Pause { return }
+        
+        /* Game begins on first touch */
+        if state == .Playing {
+            state = .Pause
+        }
+        
+        if state == .Pause {
+            state = .Playing
+        }
+        
+        /* Hide restart button .. (this is not working at the moment)*/
+       /*  pause_button.state = .Hidden */
+        
+      
         
         for touch in touches {
             /* Get touch position in scene */
@@ -210,15 +252,32 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
            
             /* deletes nodes when collide with character*/
+            var image: String
             if nodeA.name == "goodObstacle" {
                 nodeA.removeFromParent()
+                image = (nodeA as! FallingObject).image
             }
             else {
                 nodeB.removeFromParent()
+                image = (nodeB as! FallingObject).image
+            }
+            
+            if image == "watericon.png" {
+                /* Load our particle effect */
+                let particles = SKEmitterNode(fileNamed: "waterEffect.sks")!
+                
+                /* Convert node location (currently inside Level 1, to scene space) */
+                particles.position = convertPoint(hair.position, fromNode: hair)
+                
+                /* Restrict total particles to reduce runtime of particle */
+                particles.numParticlesToEmit = 100
+                
+                /* Add particles to scene */
+                addChild(particles)
             }
         }
 
-            
+        
      
         
         /*code beneath this block for transtioning into nextlevel */
@@ -292,7 +351,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             
           
-            /*test for specifying a certain image*/
+            /*test for specifying a certain image and adding an effect*/
             
             if image == "candle.png" {
                 /* Load our particle effect */
@@ -307,8 +366,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 /* Add particles to scene */
                 addChild(particles)
             }
-        
-            
+                
                 /*decrease health*/
                 health -= 0.1
                 
@@ -333,6 +391,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func update(currentTime: CFTimeInterval) {
+        if self.state == .Pause {return}
         timer += 1.0 / 60.0
         badtimer += 1.0 / 60.0
         damagetimer += 1.0 / 60.0
@@ -352,7 +411,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 timer = 0}
             
             if badtimer > 1.0 {
-                self.addChild(createbadObject(["gum.png"]))
+                self.addChild(createbadObject(["heatrays.png"]))
                 badtimer = 0}
             
             if transitiontimer > 5.0 {
@@ -366,7 +425,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 timer = 0}
             
             if badtimer > 0.8 {
-                self.addChild(createbadObject(["gum.png", "candle.png"]))
+                self.addChild(createbadObject(["heatrays.png", "candle.png"]))
                 badtimer = 0}
             
             if transitiontimer > 15.0 {
@@ -384,7 +443,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 timer = 0}
             
             if badtimer > 1.0 {
-                self.addChild(createbadObject(["gum.png"]))
+                self.addChild(createbadObject(["heatrays.png"]))
                 badtimer = 0}
             
             if transitiontimer > 20.0 {
@@ -397,7 +456,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 timer = 0}
             
             if badtimer > 1.0 {
-                self.addChild(createbadObject(["gum.png"]))
+                self.addChild(createbadObject(["heatrays.png"]))
                 badtimer = 0}
             
             if transitiontimer > 30.0 {
@@ -410,7 +469,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 timer = 0}
             
             if badtimer > 1.0 {
-                self.addChild(createbadObject(["gum.png"]))
+                self.addChild(createbadObject(["heatrays.png"]))
                 badtimer = 0}
             
             if transitiontimer > 40.0 {
@@ -431,7 +490,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             
             if object.name == "transitionObstacle" {   /*actual name of obstacle*/
-                object.position.y = object.position.y - 3
+                object.position.y = object.position.y - 1.5
                 
                 object.position.x += CGFloat(sin(currentTime * 2) * 3)
             }
