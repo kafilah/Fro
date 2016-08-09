@@ -81,7 +81,7 @@ func  badmovingObject () -> SKSpriteNode {
     
     newmovingObstacle.zPosition = 10
     newmovingObstacle.runAction(SKAction.sequence([
-        SKAction.moveToX(320 + 100, duration: 4.0),
+        SKAction.moveToX(320 + 100, duration: 5.0),
         SKAction.removeFromParent()
     ]))
     

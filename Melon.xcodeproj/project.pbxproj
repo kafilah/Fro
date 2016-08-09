@@ -11,6 +11,10 @@
 		6B040A5B1D49522C0093A265 /* growflowers.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6B040A5A1D49522C0093A265 /* growflowers.sks */; };
 		6B07E29D1D46563C004C61CE /* level1.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6B07E29C1D46563C004C61CE /* level1.sks */; };
 		6B181D7A1D5267FE0040B357 /* waterEffect.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6B181D791D5267FE0040B357 /* waterEffect.sks */; };
+		6B181D7C1D52928B0040B357 /* heatEffect.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6B181D7B1D52928B0040B357 /* heatEffect.sks */; };
+		6B2989921D52FCC50004DCF8 /* mainfro.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6B2989901D52FCC50004DCF8 /* mainfro.sks */; };
+		6B2989931D52FCC50004DCF8 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B2989911D52FCC50004DCF8 /* spark.png */; };
+		6B2989951D52FD7F0004DCF8 /* mainfro2.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6B2989941D52FD7F0004DCF8 /* mainfro2.sks */; };
 		6B739A331D33F79800EDAE3C /* MSButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B739A241D33F79800EDAE3C /* MSButtonNode.swift */; };
 		6B739A341D33F79800EDAE3C /* MSReferenceNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B739A251D33F79800EDAE3C /* MSReferenceNode.swift */; };
 		6B739A351D33F79800EDAE3C /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B739A271D33F79800EDAE3C /* CGFloat+Extensions.swift */; };
@@ -43,7 +47,6 @@
 		6BF2A8D31D47BC0500821C1A /* level3.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6BF2A8D21D47BC0500821C1A /* level3.sks */; };
 		6BF2A8D51D47BC1500821C1A /* level4.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6BF2A8D41D47BC1500821C1A /* level4.sks */; };
 		6BF2A8D81D47EDEE00821C1A /* candleExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6BF2A8D61D47EDEE00821C1A /* candleExplosion.sks */; };
-		6BF2A8D91D47EDEE00821C1A /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BF2A8D71D47EDEE00821C1A /* spark.png */; };
 		6BFA62C21D4A5BC800AD297A /* chooselevels.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6BFA62C11D4A5BC800AD297A /* chooselevels.sks */; };
 		6BFA62C41D4A5DAB00AD297A /* chooselevels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFA62C31D4A5DAB00AD297A /* chooselevels.swift */; };
 /* End PBXBuildFile section */
@@ -53,6 +56,10 @@
 		6B040A5A1D49522C0093A265 /* growflowers.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = growflowers.sks; path = ../growflowers.sks; sourceTree = "<group>"; };
 		6B07E29C1D46563C004C61CE /* level1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = level1.sks; sourceTree = "<group>"; };
 		6B181D791D5267FE0040B357 /* waterEffect.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = waterEffect.sks; path = ../waterEffect.sks; sourceTree = "<group>"; };
+		6B181D7B1D52928B0040B357 /* heatEffect.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = heatEffect.sks; sourceTree = "<group>"; };
+		6B2989901D52FCC50004DCF8 /* mainfro.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = mainfro.sks; sourceTree = "<group>"; };
+		6B2989911D52FCC50004DCF8 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		6B2989941D52FD7F0004DCF8 /* mainfro2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = mainfro2.sks; sourceTree = "<group>"; };
 		6B739A241D33F79800EDAE3C /* MSButtonNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSButtonNode.swift; sourceTree = "<group>"; };
 		6B739A251D33F79800EDAE3C /* MSReferenceNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSReferenceNode.swift; sourceTree = "<group>"; };
 		6B739A271D33F79800EDAE3C /* CGFloat+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extensions.swift"; sourceTree = "<group>"; };
@@ -87,7 +94,6 @@
 		6BF2A8D21D47BC0500821C1A /* level3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = level3.sks; sourceTree = "<group>"; };
 		6BF2A8D41D47BC1500821C1A /* level4.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = level4.sks; sourceTree = "<group>"; };
 		6BF2A8D61D47EDEE00821C1A /* candleExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = candleExplosion.sks; sourceTree = "<group>"; };
-		6BF2A8D71D47EDEE00821C1A /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		6BFA62C11D4A5BC800AD297A /* chooselevels.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = chooselevels.sks; sourceTree = "<group>"; };
 		6BFA62C31D4A5DAB00AD297A /* chooselevels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chooselevels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -170,9 +176,12 @@
 				6B040A581D4951C90093A265 /* characteractions.sks */,
 				6BF2A8D61D47EDEE00821C1A /* candleExplosion.sks */,
 				6B181D791D5267FE0040B357 /* waterEffect.sks */,
-				6BF2A8D71D47EDEE00821C1A /* spark.png */,
+				6B181D7B1D52928B0040B357 /* heatEffect.sks */,
 				6B07E29B1D46561F004C61CE /* levels */,
 				6BEDD41D1D3D71B000CCB0E7 /* pickchar.sks */,
+				6B2989901D52FCC50004DCF8 /* mainfro.sks */,
+				6B2989911D52FCC50004DCF8 /* spark.png */,
+				6B2989941D52FD7F0004DCF8 /* mainfro2.sks */,
 				6BEDD4191D3D715F00CCB0E7 /* pickchar.swift */,
 				6B9DCF061D34319900551877 /* MainScene.swift */,
 				6B9DCF041D342E1D00551877 /* MainScene.sks */,
@@ -257,12 +266,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B181D7C1D52928B0040B357 /* heatEffect.sks in Resources */,
 				6BFA62C21D4A5BC800AD297A /* chooselevels.sks in Resources */,
 				6B07E29D1D46563C004C61CE /* level1.sks in Resources */,
+				6B2989921D52FCC50004DCF8 /* mainfro.sks in Resources */,
 				6BF2A8D51D47BC1500821C1A /* level4.sks in Resources */,
+				6B2989931D52FCC50004DCF8 /* spark.png in Resources */,
 				6BEDD41E1D3D71B000CCB0E7 /* pickchar.sks in Resources */,
-				6BF2A8D91D47EDEE00821C1A /* spark.png in Resources */,
 				6B181D7A1D5267FE0040B357 /* waterEffect.sks in Resources */,
+				6B2989951D52FD7F0004DCF8 /* mainfro2.sks in Resources */,
 				6BEDCF961D2D500F0003F190 /* GameScene.sks in Resources */,
 				6B040A591D4951C90093A265 /* characteractions.sks in Resources */,
 				6BEDCFAC1D2D52AD0003F190 /* sfx_flap.caf in Resources */,

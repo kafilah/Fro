@@ -366,6 +366,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 /* Add particles to scene */
                 addChild(particles)
             }
+         
+                if image == "heatrays.png" {
+                    /* Load our particle effect */
+                    let particles = SKEmitterNode(fileNamed: "heatEffect")!
+                    
+                    /* Convert node location (currently inside Level 1, to scene space) */
+                    particles.position = convertPoint(hair.position, fromNode: hair)
+                    
+                    /* Restrict total particles to reduce runtime of particle */
+                    particles.numParticlesToEmit = 100
+                    
+                    /* Add particles to scene */
+                    addChild(particles)
+                    
+                }
+                
                 
                 /*decrease health*/
                 health -= 0.1
@@ -407,7 +423,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         /*also edit stuff for levels*/
         if level == 0 {
             if timer > 0.5 {
-                self.addChild(creategoodObject(["avocado.png", "watericon.png"]))
+                self.addChild(creategoodObject(["avocado.png", "watericon.png", "banana.png"]))
                 timer = 0}
             
             if badtimer > 1.0 {
@@ -421,7 +437,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         else if level == 1 {
             if timer > 0.5 {
-                self.addChild(creategoodObject(["banana.png", "watericon.png"]))
+                self.addChild(creategoodObject(["avocado.png", "banana.png", "watericon.png", "coconutoil.png"]))
                 timer = 0}
             
             if badtimer > 0.8 {
@@ -439,7 +455,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         else if level == 2 {
             if timer > 0.5 {
-                self.addChild(creategoodObject(["banana.png", "watericon.png", "avocado.png"]))
+                self.addChild(creategoodObject(["avocado.png", "banana.png", "watericon.png", "coconutoil.png"]))
                 timer = 0}
             
             if badtimer > 1.0 {

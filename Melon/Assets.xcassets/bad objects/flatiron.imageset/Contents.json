@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "object4.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "flatiron.png",
       "scale" : "2x"
     },
     {
