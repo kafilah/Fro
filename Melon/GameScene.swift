@@ -39,6 +39,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var hair: SKSpriteNode!
     
+    var grass:SKSpriteNode!
+    
     /* Game management */
     var state: GameState = .Playing
     
@@ -93,6 +95,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var levelNode: SKNode!
     
     var level = 0
+    {
+        didSet
+        {
+
+            
+        }
+    }
     
     
     override func didMoveToView(view: SKView) {
@@ -105,6 +114,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         /* UI game objects */
         pause_button = childNodeWithName("pause_button") as! MSButtonNode
         
+        grass = self.childNodeWithName("//grass") as! SKSpriteNode
         
         /* Recursive node search for 'hero' (child of referenced node) */
         hero = self.childNodeWithName("//hero") as! SKSpriteNode
@@ -139,6 +149,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let resourcePath = NSBundle.mainBundle().pathForResource(levels[level], ofType: "sks") /*gets and looks up current level in array*/
             let newLevel = SKReferenceNode (URL: NSURL (fileURLWithPath: resourcePath!))
             levelNode.addChild(newLevel)
+        }
+        
+        /*this is attempt to remove grass*/
+        if level > 4 && grass != nil {
+            grass.removeFromParent()
         }
         
         /*if level <= 5{
@@ -335,6 +350,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 let resourcePath = NSBundle.mainBundle().pathForResource(levels[level], ofType: "sks") /*gets and looks up current level in array*/
                 let newLevel = SKReferenceNode (URL: NSURL (fileURLWithPath: resourcePath!))
                 levelNode.addChild(newLevel)
+                
+                /*inserting to check and make sure the grass is removed again*/
+                if level > 4 && grass != nil {
+                    grass.removeFromParent()
+                }
                 
             }
         }
