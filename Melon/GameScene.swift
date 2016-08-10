@@ -61,10 +61,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var bmtimer: CGFloat = 0
     
-    let hairs = ["", "fro1", "fro2", "fro3" , "fro4"]
+    let hairs = ["", "fro1", "fro2", "fro3" , "fro4" , "fro4",
+                 "fro4" , "fro4" , "fro4" , "fro4" , "fro4" ,
+                 "fro4" , "fro4" , "fro4" , "fro4", "fro4" ]
     
     
-    let levels = ["", "level1", "level2", "level3", "level4"]
+    let levels = ["", "level1", "level2", "level3", "level4", "level5",
+                  "level6", "level7", "level8", "level9", "level10",
+                  "level11", "level12", "level13", "level14"]
     
     /*health bar*/
     var healthBar: SKSpriteNode!
@@ -136,6 +140,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let newLevel = SKReferenceNode (URL: NSURL (fileURLWithPath: resourcePath!))
             levelNode.addChild(newLevel)
         }
+        
+        /*if level <= 5{
+            removeFromParent("grass")
+            removeAllChildren("grass")
+            /* Load Level 1 */
+            let resourcePath = NSBundle.mainBundle().pathForResource(levels[level], ofType: "sks") /*gets and looks up current level in array*/
+            let newLevel = SKReferenceNode (URL: NSURL (fileURLWithPath: resourcePath!))
+            levelNode.addChild(newLevel)
+        }*/
+        
         
         /*directs the player back to the homepage! lets go kfeelz!!*/
         home_button1.selectedHandler = {
@@ -423,11 +437,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         /*also edit stuff for levels*/
         if level == 0 {
             if timer > 0.5 {
-                self.addChild(creategoodObject(["avocado.png", "watericon.png", "banana.png"]))
+                self.addChild(creategoodObject(["avocado.png", "watericon.png", "banana.png", "acvinegar.png", "conditioner.png", "eggs.png", "honey.png", "leafy.png", "oliveoil.png", "shampoo.png", ]))
                 timer = 0}
             
             if badtimer > 1.0 {
-                self.addChild(createbadObject(["heatrays.png"]))
+                self.addChild(createbadObject(["heatrays.png", "alcohol.png", "candle.png" , "flatiron.png", "permbox.png", "petroleum.png",
+                    "relaxertub.png"]))
                 badtimer = 0}
             
             if transitiontimer > 5.0 {
@@ -492,6 +507,137 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.addChild(transitionObject()) /*function*/
                 transitiontimer = 0}
         }
+        else if level == 5 {
+            if timer > 0.5 {
+                self.addChild(creategoodObject(["banana.png", "watericon.png"]))
+                timer = 0}
+            
+            if badtimer > 1.0 {
+                self.addChild(createbadObject(["heatrays.png"]))
+                badtimer = 0}
+            
+            if transitiontimer > 40.0 {
+                self.addChild(transitionObject()) /*function*/
+                transitiontimer = 0}
+        }
+        else if level == 6 {
+            if timer > 0.5 {
+                self.addChild(creategoodObject(["banana.png", "watericon.png"]))
+                timer = 0}
+            
+            if badtimer > 1.0 {
+                self.addChild(createbadObject(["heatrays.png"]))
+                badtimer = 0}
+            
+            if transitiontimer > 40.0 {
+                self.addChild(transitionObject()) /*function*/
+                transitiontimer = 0}
+        }
+        else if level == 7 {
+            if timer > 0.5 {
+                self.addChild(creategoodObject(["banana.png", "watericon.png"]))
+                timer = 0}
+            
+            if badtimer > 1.0 {
+                self.addChild(createbadObject(["heatrays.png"]))
+                badtimer = 0}
+            
+            if transitiontimer > 40.0 {
+                self.addChild(transitionObject()) /*function*/
+                transitiontimer = 0}
+        }
+        else if level == 8 {
+            if timer > 0.5 {
+                self.addChild(creategoodObject(["banana.png", "watericon.png"]))
+                timer = 0}
+            
+            if badtimer > 1.0 {
+                self.addChild(createbadObject(["heatrays.png"]))
+                badtimer = 0}
+            
+            if transitiontimer > 40.0 {
+                self.addChild(transitionObject()) /*function*/
+                transitiontimer = 0}
+        }
+        else if level == 9 {
+            if timer > 0.5 {
+                self.addChild(creategoodObject(["banana.png", "watericon.png"]))
+                timer = 0}
+            
+            if badtimer > 1.0 {
+                self.addChild(createbadObject(["heatrays.png"]))
+                badtimer = 0}
+            
+            if transitiontimer > 40.0 {
+                self.addChild(transitionObject()) /*function*/
+                transitiontimer = 0}
+        }
+        else if level == 10 {
+            if timer > 0.5 {
+                self.addChild(creategoodObject(["banana.png", "watericon.png"]))
+                timer = 0}
+            
+            if badtimer > 1.0 {
+                self.addChild(createbadObject(["heatrays.png"]))
+                badtimer = 0}
+            
+            if transitiontimer > 40.0 {
+                self.addChild(transitionObject()) /*function*/
+                transitiontimer = 0}
+        }
+        else if level == 11 {
+            if timer > 0.5 {
+                self.addChild(creategoodObject(["banana.png", "watericon.png"]))
+                timer = 0}
+            
+            if badtimer > 1.0 {
+                self.addChild(createbadObject(["heatrays.png"]))
+                badtimer = 0}
+            
+            if transitiontimer > 40.0 {
+                self.addChild(transitionObject()) /*function*/
+                transitiontimer = 0}
+        }
+        else if level == 12 {
+            if timer > 0.5 {
+                self.addChild(creategoodObject(["banana.png", "watericon.png"]))
+                timer = 0}
+            
+            if badtimer > 1.0 {
+                self.addChild(createbadObject(["heatrays.png"]))
+                badtimer = 0}
+            
+            if transitiontimer > 40.0 {
+                self.addChild(transitionObject()) /*function*/
+                transitiontimer = 0}
+        }
+        else if level == 13 {
+            if timer > 0.5 {
+                self.addChild(creategoodObject(["banana.png", "watericon.png"]))
+                timer = 0}
+            
+            if badtimer > 1.0 {
+                self.addChild(createbadObject(["heatrays.png"]))
+                badtimer = 0}
+            
+            if transitiontimer > 40.0 {
+                self.addChild(transitionObject()) /*function*/
+                transitiontimer = 0}
+        }
+        else if level == 14 {
+            if timer > 0.5 {
+                self.addChild(creategoodObject(["banana.png", "watericon.png"]))
+                timer = 0}
+            
+            if badtimer > 1.0 {
+                self.addChild(createbadObject(["heatrays.png"]))
+                badtimer = 0}
+            
+            if transitiontimer > 40.0 {
+                self.addChild(transitionObject()) /*function*/
+                transitiontimer = 0}
+        }
+        
         
     
         

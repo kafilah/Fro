@@ -72,8 +72,8 @@ func  badmovingObject () -> SKSpriteNode {
     newmovingObstacle.physicsBody?.contactTestBitMask = 1
     newmovingObstacle.physicsBody?.contactTestBitMask = 1
     newmovingObstacle.name = "badmovingObstacle"
-    newmovingObstacle.xScale = 0.75
-    newmovingObstacle.yScale = 0.75
+    newmovingObstacle.xScale = 0.50
+    newmovingObstacle.yScale = 0.50
     newmovingObstacle.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(newmovingObstacle.size.width / 2, newmovingObstacle.size.height / 2))
     newmovingObstacle.physicsBody!.affectedByGravity = false /*changed to false so objects can manually fall*/
     newmovingObstacle.position = CGPointMake(-100, 20)

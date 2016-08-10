@@ -27,13 +27,21 @@ class pickchar: SKScene {
     var skins: SKSpriteNode!
     
     
-    var customizeSkin: MSButtonNode!
+    var customizeSkinRight: MSButtonNode!
+    
+    var customizeSkinLeft: MSButtonNode!
+    
+    
     
     /*this creates UI connection for hair options*/
     var hairs: SKSpriteNode!
     
     
-    var customizeHair: MSButtonNode!
+    var customizeHairRight: MSButtonNode!
+    
+    
+    
+    var customizeHairLeft: MSButtonNode!
     
    
     
@@ -48,12 +56,16 @@ class pickchar: SKScene {
         
         
         /*this creates UI connection for skins*/
-        customizeSkin = self.childNodeWithName("//customizeSkin") as! MSButtonNode
+        customizeSkinRight = self.childNodeWithName("//customizeSkinRight") as! MSButtonNode
+        
+        customizeSkinLeft = self.childNodeWithName("//customizeSkinLeft") as! MSButtonNode
         
         skins = self.childNodeWithName("//skins") as! SKSpriteNode
         
         /*this creates UI connection for hairs*/
-        customizeHair = self.childNodeWithName("//customizeHair") as! MSButtonNode
+        customizeHairRight = self.childNodeWithName("//customizeHairRight") as! MSButtonNode
+        
+         customizeHairLeft = self.childNodeWithName("//customizeHairLeft") as! MSButtonNode
         
         hairs = self.childNodeWithName("//hairs") as! SKSpriteNode
         
@@ -80,7 +92,7 @@ class pickchar: SKScene {
         
         
         /*Setup button to move through array of skins I have created*/
-        customizeSkin.selectedHandler = {
+        customizeSkinRight.selectedHandler = {
             
             /*enables the changing of skin color*/
             currentskin = currentskin + 1
@@ -92,9 +104,23 @@ class pickchar: SKScene {
             self.skins.texture = SKTexture(imageNamed: skinOptions[currentskin])
         }
         
+        customizeSkinLeft.selectedHandler = {
+            
+            /*enables the changing of skin color*/
+            /*the code i just added also controls it only if it is in the array*/
+            if currentskin > 0 {
+            currentskin = currentskin - 1
+            
+            /*this enables it to go back to first element in array once the skins are ran through*/
+            currentskin = currentskin % skinOptions.count
+            
+            /* changes the texture of skin when clicking on customize skin button*/
+            self.skins.texture = SKTexture(imageNamed: skinOptions[currentskin])
+            }
+        }
         
         /*Setup button to move through array of hair objects I have created*/
-        customizeHair.selectedHandler = {
+        customizeHairRight.selectedHandler = {
             
             /*enables the changing of hair color*/
             currenthair = currenthair + 1
@@ -105,6 +131,22 @@ class pickchar: SKScene {
             /* changes the texture of skin when clicking on customize hair button*/
             self.hairs.color = hairColors[currenthair]
         }
+        /*Setup button to move through array of hair objects I have created*/
+        customizeHairLeft.selectedHandler = {
+            
+            if currenthair > 0 {
+            /*enables the changing of hair color*/
+            currenthair = currenthair - 1
+            
+            /*this enables it to go back to change hair color*/
+            currenthair = currenthair % hairColors.count
+            
+            /* changes the texture of skin when clicking on customize hair button*/
+            self.hairs.color = hairColors[currenthair]
+            }
+        }
+        
+        /*saves whichever hair option the user has selected*/
         self.hairs.color = hairColors[currenthair]
         
         /*directs the player back to the homepage! lets go kfeelz!!*/
