@@ -60,7 +60,7 @@ class MainScene: SKScene {
             let skView = self.view as SKView!
             
             /* Load Game scene */
-            let scene = pickchar(fileNamed:"pickchar") as pickchar!
+            let scene = badobjectinfo(fileNamed:"badobjectinfo") as badobjectinfo!
             
             /* Ensure correct aspect mode */
             scene.scaleMode = .AspectFill
