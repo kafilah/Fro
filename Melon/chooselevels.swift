@@ -9,6 +9,7 @@
 import Foundation
 import SpriteKit
 
+
 class chooselevels: SKScene {
     
     /* UI Connections */
@@ -101,6 +102,7 @@ class chooselevels: SKScene {
             
             /* Start game scene */
             skView.presentScene(scene)
+
         }
         
         level1button.selectedHandler = {
@@ -111,13 +113,15 @@ class chooselevels: SKScene {
             
             /* Load Game scene */
             let scene = GameScene(fileNamed:"GameScene") as GameScene!
-            scene.level = 1 /*loads the second level*/
             
             /* Ensure correct aspect mode */
             scene.scaleMode = .AspectFill
             
             /* Start game scene */
+            scene.level = 1 /*loads the second level*/
             skView.presentScene(scene)
+            
+
         }
         
         level2button.selectedHandler = {
@@ -128,13 +132,14 @@ class chooselevels: SKScene {
             
             /* Load Game scene */
             let scene = GameScene(fileNamed:"GameScene") as GameScene!
-            scene.level = 2 /*loads the second level*/
             
             /* Ensure correct aspect mode */
             scene.scaleMode = .AspectFill
             
             /* Start game scene */
+            scene.level = 2 /*loads the second level*/
             skView.presentScene(scene)
+            
         }
         
         level3button.selectedHandler = {
@@ -145,13 +150,15 @@ class chooselevels: SKScene {
             
             /* Load Game scene */
             let scene = GameScene(fileNamed:"GameScene") as GameScene!
-            scene.level = 3 /*loads the second level*/
             
             /* Ensure correct aspect mode */
             scene.scaleMode = .AspectFill
             
             /* Start game scene */
+            scene.level = 3 /*loads the second level*/
             skView.presentScene(scene)
+            
+
         }
         
         level4button.selectedHandler = {
@@ -162,13 +169,14 @@ class chooselevels: SKScene {
             
             /* Load Game scene */
             let scene = GameScene(fileNamed:"GameScene") as GameScene!
-            scene.level = 4 /*loads the second level*/
             
             /* Ensure correct aspect mode */
             scene.scaleMode = .AspectFill
             
             /* Start game scene */
+            scene.level = 4 /*loads the second level*/
             skView.presentScene(scene)
+            
         }
         
         level5button.selectedHandler = {
@@ -179,13 +187,14 @@ class chooselevels: SKScene {
             
             /* Load Game scene */
             let scene = GameScene(fileNamed:"GameScene") as GameScene!
-            scene.level = 5 /*loads the second level*/
             
             /* Ensure correct aspect mode */
             scene.scaleMode = .AspectFill
             
             /* Start game scene */
+            scene.level = 5 /*loads the second level*/
             skView.presentScene(scene)
+          
         }
         
         level6button.selectedHandler = {
@@ -196,13 +205,14 @@ class chooselevels: SKScene {
             
             /* Load Game scene */
             let scene = GameScene(fileNamed:"GameScene") as GameScene!
-            scene.level = 6 /*loads the second level*/
             
             /* Ensure correct aspect mode */
             scene.scaleMode = .AspectFill
             
             /* Start game scene */
+            scene.level = 6 /*loads the second level*/
             skView.presentScene(scene)
+           
         }
         
         level7button.selectedHandler = {
@@ -213,12 +223,12 @@ class chooselevels: SKScene {
             
             /* Load Game scene */
             let scene = GameScene(fileNamed:"GameScene") as GameScene!
-            scene.level = 7 /*loads the second level*/
             
             /* Ensure correct aspect mode */
             scene.scaleMode = .AspectFill
             
             /* Start game scene */
+            scene.level = 7 /*loads the second level*/
             skView.presentScene(scene)
         }
         
@@ -230,12 +240,12 @@ class chooselevels: SKScene {
             
             /* Load Game scene */
             let scene = GameScene(fileNamed:"GameScene") as GameScene!
-            scene.level = 8 /*loads the second level*/
             
             /* Ensure correct aspect mode */
             scene.scaleMode = .AspectFill
             
             /* Start game scene */
+            scene.level = 8 /*loads the second level*/
             skView.presentScene(scene)
         }
         
@@ -247,12 +257,12 @@ class chooselevels: SKScene {
             
             /* Load Game scene */
             let scene = GameScene(fileNamed:"GameScene") as GameScene!
-            scene.level = 9 /*loads the second level*/
             
             /* Ensure correct aspect mode */
             scene.scaleMode = .AspectFill
             
             /* Start game scene */
+            scene.level = 9 /*loads the second level*/
             skView.presentScene(scene)
         }
         
@@ -264,12 +274,12 @@ class chooselevels: SKScene {
             
             /* Load Game scene */
             let scene = GameScene(fileNamed:"GameScene") as GameScene!
-            scene.level = 10 /*loads the second level*/
             
             /* Ensure correct aspect mode */
             scene.scaleMode = .AspectFill
             
             /* Start game scene */
+            scene.level = 10 /*loads the second level*/
             skView.presentScene(scene)
         }
         
@@ -281,12 +291,12 @@ class chooselevels: SKScene {
             
             /* Load Game scene */
             let scene = GameScene(fileNamed:"GameScene") as GameScene!
-            scene.level = 11 /*loads the second level*/
             
             /* Ensure correct aspect mode */
             scene.scaleMode = .AspectFill
             
             /* Start game scene */
+            scene.level = 11 /*loads the second level*/
             skView.presentScene(scene)
         }
         
@@ -298,12 +308,12 @@ class chooselevels: SKScene {
             
             /* Load Game scene */
             let scene = GameScene(fileNamed:"GameScene") as GameScene!
-            scene.level = 12 /*loads the second level*/
             
             /* Ensure correct aspect mode */
             scene.scaleMode = .AspectFill
             
             /* Start game scene */
+            scene.level = 12 /*loads the second level*/
             skView.presentScene(scene)
         }
         
@@ -315,12 +325,12 @@ class chooselevels: SKScene {
             
             /* Load Game scene */
             let scene = GameScene(fileNamed:"GameScene") as GameScene!
-            scene.level = 13 /*loads the second level*/
             
             /* Ensure correct aspect mode */
             scene.scaleMode = .AspectFill
             
             /* Start game scene */
+            scene.level = 13 /*loads the second level*/
             skView.presentScene(scene)
         }
         
@@ -333,12 +343,12 @@ class chooselevels: SKScene {
             
             /* Load Game scene */
             let scene = GameScene(fileNamed:"GameScene") as GameScene!
-            scene.level = 14 /*loads the second level*/
             
             /* Ensure correct aspect mode */
             scene.scaleMode = .AspectFill
             
             /* Start game scene */
+            scene.level = 14 /*loads the second level*/
             skView.presentScene(scene)
         }
         

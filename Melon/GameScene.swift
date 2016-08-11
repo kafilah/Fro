@@ -9,11 +9,13 @@
 
 import SpriteKit
 import UIKit
+import AVFoundation
 
 /* Tracking enum for game state */
 enum GameState {
     case Ready, Pause, Playing, GameOver, Hidden
 }
+
 
 
 let hairColors = [SKColor.cyanColor(),
@@ -32,6 +34,7 @@ let hairColors = [SKColor.cyanColor(),
                   SKColorWithRGB( 204,  g: 229, b: 255),
                 ]
 
+ var music: AVAudioPlayer!
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
@@ -49,6 +52,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     /*setting the functionality for the home button*/
     var home_button1: MSButtonNode!
     
+    /*attempt to get frofacts to appear briefly*/
+    var frofact: MSButtonNode!
+    
     var sinceTouch : CFTimeInterval = 0
     
     var timer: CGFloat = 0
@@ -63,7 +69,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var bmtimer: CGFloat = 0
     
-    let hairs = ["", "fro1", "fro2", "fro3" , "fro4" , "fro4",
+    let hairs = ["fro1", "fro1", "fro2", "fro3" , "fro3" , "fro4",
                  "fro4" , "fro4" , "fro4" , "fro4" , "fro4" ,
                  "fro4" , "fro4" , "fro4" , "fro4", "fro4" ]
     
@@ -94,12 +100,29 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     /* Level loader holder */
     var levelNode: SKNode!
     
+    /*this sets the level intially and also loads new levels and removes grass once
+    reaching a certain level*/
     var level = 0
     {
         didSet
         {
-
-            
+            if levelNode == nil {
+                return
+            }
+            if level > 0
+            {
+                levelNode.removeAllChildren()
+                /* Load Level 1 */
+                let resourcePath = NSBundle.mainBundle().pathForResource(levels[level], ofType: "sks") /*gets and looks up current level in array*/
+                let newLevel = SKReferenceNode (URL: NSURL (fileURLWithPath: resourcePath!))
+                levelNode.addChild(newLevel)
+                frofact.texture = SKTexture(imageNamed: "frofact\(level + 1)")
+                frofact.state = .MSButtonNodeStateActive
+            }
+            /*this is attempt to remove grass*/
+            if level > 4 && grass != nil {
+                grass.removeFromParent()
+            }
         }
     }
     
@@ -107,8 +130,35 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func didMoveToView(view: SKView) {
     /* Set up your scene here */
         
+        if music == nil {
+            /*what plays the music file*/
+            do {
+                try music = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("bgmusic", ofType: "wav")!), fileTypeHint: nil)
+            }
+            catch {
+            }
+ 
+            music.numberOfLoops = -1
+            music.play()
+        
+        }
+        
+        
+        
         /*set reference to home and setting buttons*/
         home_button1 = self.childNodeWithName("//home_button1") as! MSButtonNode
+        
+        /*set reference to frofact*/
+        frofact = self.childNodeWithName("//frofact") as! MSButtonNode
+        
+        frofact.state = .MSButtonNodeStateHidden
+        
+        /* Setup restart button selection handler */
+        frofact.selectedHandler = {
+            /*to change amount of time frofacts appear*/
+            self.frofact.runAction(SKAction.fadeOutWithDuration(2.0))
+            self.frofact.state = .MSButtonNodeStateHidden
+        }
         
         /*sets reference to play/pause button*/
         /* UI game objects */
@@ -127,6 +177,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         /*sets reference to skin colors*/
         hero.texture = SKTexture(imageNamed: skinOptions[currentskin])
+        hair.texture = SKTexture(imageNamed: hairs[level]) /*gets the current level and looks up which hair are we on*/
         
         /*Set reference to healthBar node*/
         healthBar = self.childNodeWithName("//healthBar") as! SKSpriteNode
@@ -142,19 +193,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         /*allows us to see whats happening in terms of phsyics in games*/
         view.showsPhysics = false /*change to true if i want too see whats happening*/
-        
-        if level > 0 {
-            levelNode.removeAllChildren()
-            /* Load Level 1 */
-            let resourcePath = NSBundle.mainBundle().pathForResource(levels[level], ofType: "sks") /*gets and looks up current level in array*/
-            let newLevel = SKReferenceNode (URL: NSURL (fileURLWithPath: resourcePath!))
-            levelNode.addChild(newLevel)
-        }
-        
-        /*this is attempt to remove grass*/
-        if level > 4 && grass != nil {
-            grass.removeFromParent()
-        }
         
         /*if level <= 5{
             removeFromParent("grass")
@@ -275,7 +313,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             if score % 1 == 0 {
                 
-                hair.xScale += 0.01
+                //to change hair growth amount
+                hair.xScale += 0.09
                 hair.yScale += 0.002
             }
             
@@ -336,7 +375,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 }
                 
                 /* to reset the score and health bar i added this code*/
-                score = 0
+                // only need this if i want to reset score code [score = 0] //
                 health = 1.0
                 hair.xScale = 1.0
                 hair.yScale = 1.0
@@ -457,12 +496,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         /*also edit stuff for levels*/
         if level == 0 {
             if timer > 0.5 {
-                self.addChild(creategoodObject(["avocado.png", "watericon.png", "banana.png", "acvinegar.png", "conditioner.png", "eggs.png", "honey.png", "leafy.png", "oliveoil.png", "shampoo.png", ]))
+                self.addChild(creategoodObject(["avocado.png","acvinegar.png", "banana.png","coconutoil.png", "conditioner.png", "eggs.png",
+                    "honey.png", "leafy.png", "oliveoil.png", "shampoo.png",
+                    "watericon.png", ]))
                 timer = 0}
             
             if badtimer > 1.0 {
-                self.addChild(createbadObject(["heatrays.png", "alcohol.png", "candle.png" , "flatiron.png", "permbox.png", "petroleum.png",
-                    "relaxertub.png"]))
+                self.addChild(createbadObject(["heatrays.png", "alcohol.png"]))
                 badtimer = 0}
             
             if transitiontimer > 5.0 {
@@ -487,7 +527,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             if bmtimer > 3.0 {
                 self.addChild(badmovingObject()) /*function*/
                 bmtimer = 0} /*always*/
-        }
+            }
         else if level == 2 {
             if timer > 0.5 {
                 self.addChild(creategoodObject(["avocado.png", "banana.png", "watericon.png", "coconutoil.png"]))

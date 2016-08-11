@@ -63,6 +63,9 @@
 		6BFF7DBA1D5BA388000CA86A /* badobjectinfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFF7DB91D5BA388000CA86A /* badobjectinfo.swift */; };
 		6BFF7DBC1D5BA669000CA86A /* goodobjectinfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFF7DBB1D5BA669000CA86A /* goodobjectinfo.swift */; };
 		6BFF7DBE1D5BA682000CA86A /* goodobjectinfo.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6BFF7DBD1D5BA682000CA86A /* goodobjectinfo.sks */; };
+		6BFF7DC41D5BE420000CA86A /* bgmusic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6BFF7DC31D5BE420000CA86A /* bgmusic.wav */; };
+		6BFF7DC61D5BF107000CA86A /* headscarf.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6BFF7DC51D5BF107000CA86A /* headscarf.sks */; };
+		6BFF7DC81D5BF174000CA86A /* headscarf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFF7DC71D5BF174000CA86A /* headscarf.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -124,6 +127,9 @@
 		6BFF7DB91D5BA388000CA86A /* badobjectinfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = badobjectinfo.swift; sourceTree = "<group>"; };
 		6BFF7DBB1D5BA669000CA86A /* goodobjectinfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = goodobjectinfo.swift; sourceTree = "<group>"; };
 		6BFF7DBD1D5BA682000CA86A /* goodobjectinfo.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = goodobjectinfo.sks; sourceTree = "<group>"; };
+		6BFF7DC31D5BE420000CA86A /* bgmusic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bgmusic.wav; sourceTree = "<group>"; };
+		6BFF7DC51D5BF107000CA86A /* headscarf.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = headscarf.sks; sourceTree = "<group>"; };
+		6BFF7DC71D5BF174000CA86A /* headscarf.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = headscarf.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +215,7 @@
 				6B739A231D33F79800EDAE3C /* Utils */,
 				6BEDCF931D2D500F0003F190 /* AppDelegate.swift */,
 				6BEDCF971D2D500F0003F190 /* GameScene.swift */,
+				6BFF7DC31D5BE420000CA86A /* bgmusic.wav */,
 				6BEDCF951D2D500F0003F190 /* GameScene.sks */,
 				6B040A5A1D49522C0093A265 /* growflowers.sks */,
 				6B040A581D4951C90093A265 /* characteractions.sks */,
@@ -223,6 +230,8 @@
 				6BEDD4191D3D715F00CCB0E7 /* pickchar.swift */,
 				6BFF7DB91D5BA388000CA86A /* badobjectinfo.swift */,
 				6BFF7DB71D5BA166000CA86A /* badobjectinfo.sks */,
+				6BFF7DC51D5BF107000CA86A /* headscarf.sks */,
+				6BFF7DC71D5BF174000CA86A /* headscarf.swift */,
 				6BFF7DBB1D5BA669000CA86A /* goodobjectinfo.swift */,
 				6BFF7DBD1D5BA682000CA86A /* goodobjectinfo.sks */,
 				6B9DCF061D34319900551877 /* MainScene.swift */,
@@ -329,6 +338,7 @@
 				6BEDCFA21D2D500F0003F190 /* LaunchScreen.storyboard in Resources */,
 				6BC877671D5A595400A146B0 /* level8.sks in Resources */,
 				6BF2A8D11D47BBF300821C1A /* level2.sks in Resources */,
+				6BFF7DC41D5BE420000CA86A /* bgmusic.wav in Resources */,
 				6BC877651D5A594800A146B0 /* level7.sks in Resources */,
 				6BEDCF9F1D2D500F0003F190 /* Assets.xcassets in Resources */,
 				6BC8776D1D5A597A00A146B0 /* level11.sks in Resources */,
@@ -341,6 +351,7 @@
 				6BC877731D5A59A600A146B0 /* level14.sks in Resources */,
 				6BC877691D5A596000A146B0 /* level9.sks in Resources */,
 				6B040A5B1D49522C0093A265 /* growflowers.sks in Resources */,
+				6BFF7DC61D5BF107000CA86A /* headscarf.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,6 +381,7 @@
 				6B739A351D33F79800EDAE3C /* CGFloat+Extensions.swift in Sources */,
 				6BFA62C41D4A5DAB00AD297A /* chooselevels.swift in Sources */,
 				6B739A3E1D33F79800EDAE3C /* SKTEffects.swift in Sources */,
+				6BFF7DC81D5BF174000CA86A /* headscarf.swift in Sources */,
 				6BFF7DBC1D5BA669000CA86A /* goodobjectinfo.swift in Sources */,
 				6B9DCF071D34319900551877 /* MainScene.swift in Sources */,
 				6B739A401D33F79800EDAE3C /* Vector3.swift in Sources */,

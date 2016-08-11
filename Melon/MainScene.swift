@@ -46,7 +46,7 @@ class MainScene: SKScene {
         
         /* attempt to connect directory to site*/
         directory_button.selectedHandler = {
-            self.WebLink("https://kafilah.me")
+            self.WebLink("https://thefroapp.com")
             
         }
         

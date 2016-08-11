@@ -1,15 +1,21 @@
 //
-//  goodobjectinfo.swift
+//  headscarf.swift
 //  Melon
 //
 //  Created by Kafilah on 8/10/16.
 //  Copyright © 2016 Kafilah. All rights reserved.
 //
 
+
 import SpriteKit
 import UIKit
 
-class goodobjectinfo: SKScene {
+//for a future version i will remove this once viewed
+//by creating a bool function that states if it is 
+//seen already then dissappear but if not then keep it
+//but as of now i think it is important for user
+
+class headscarf: SKScene {
     
     /* UI Connections */
     var next: MSButtonNode!
@@ -35,7 +41,7 @@ class goodobjectinfo: SKScene {
             let skView = self.view as SKView!
             
             /* Load Game scene */
-            let scene = headscarf(fileNamed:"headscarf") as headscarf!
+            let scene = pickchar(fileNamed:"pickchar") as pickchar!
             
             /* Ensure correct aspect mode */
             scene.scaleMode = .AspectFill
