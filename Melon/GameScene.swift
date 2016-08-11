@@ -69,9 +69,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var bmtimer: CGFloat = 0
     
-    let hairs = ["fro1", "fro1", "fro2", "fro3" , "fro3" , "fro4",
-                 "fro4" , "fro4" , "fro4" , "fro4" , "fro4" ,
-                 "fro4" , "fro4" , "fro4" , "fro4", "fro4" ]
+    let hairs = ["fro0", "fro1", "fro2", "fro3" , "fro3" , "fro4",
+                 "fro5" , "fro6" , "fro7" , "fro13" , "fro9" ,
+                 "fro10" , "fro11" , "fro12" , "fro13", "fro14" ]
     
     
     let levels = ["", "level1", "level2", "level3", "level4", "level5",
@@ -106,9 +106,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     {
         didSet
         {
-            if levelNode == nil {
-                return
-            }
             if level > 0
             {
                 levelNode.removeAllChildren()
@@ -118,11 +115,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 levelNode.addChild(newLevel)
                 frofact.texture = SKTexture(imageNamed: "frofact\(level + 1)")
                 frofact.state = .MSButtonNodeStateActive
-            }
+            
+            hair.texture = SKTexture(imageNamed: hairs[level]) /*gets the current level and looks up which hair are we on*/
+            hair.size = hair.texture!.size()
             /*this is attempt to remove grass*/
             if level > 4 && grass != nil {
                 grass.removeFromParent()
             }
+                
+            hair.size = hair.texture!.size()
+
+            } /* i moved this closing paretheses from beginning of hair.texture*/
         }
     }
     
@@ -142,8 +145,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             music.play()
         
         }
-        
-        
+
         
         /*set reference to home and setting buttons*/
         home_button1 = self.childNodeWithName("//home_button1") as! MSButtonNode
@@ -178,6 +180,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         /*sets reference to skin colors*/
         hero.texture = SKTexture(imageNamed: skinOptions[currentskin])
         hair.texture = SKTexture(imageNamed: hairs[level]) /*gets the current level and looks up which hair are we on*/
+        hair.size = hair.texture!.size()
         
         /*Set reference to healthBar node*/
         healthBar = self.childNodeWithName("//healthBar") as! SKSpriteNode
@@ -379,7 +382,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 health = 1.0
                 hair.xScale = 1.0
                 hair.yScale = 1.0
-                hair.texture = SKTexture(imageNamed: hairs[level]) /*gets the current level and looks up which hair are we on*/
+                
                 
                 
                 /* only here */
@@ -419,8 +422,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
                 
             /*this decrease scale of hair if it comes into contact with a bad object*/
-                hair.xScale -= 0.1
-                hair.yScale -= 0.02
+                hair.xScale -= 0.03
+                hair.yScale -= 0.03
             
             
           

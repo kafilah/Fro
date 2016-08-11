@@ -214,10 +214,10 @@
 			children = (
 				6B739A231D33F79800EDAE3C /* Utils */,
 				6BEDCF931D2D500F0003F190 /* AppDelegate.swift */,
-				6BEDCF971D2D500F0003F190 /* GameScene.swift */,
 				6BFF7DC31D5BE420000CA86A /* bgmusic.wav */,
-				6BEDCF951D2D500F0003F190 /* GameScene.sks */,
 				6B040A5A1D49522C0093A265 /* growflowers.sks */,
+				6BEDCF951D2D500F0003F190 /* GameScene.sks */,
+				6BEDCF971D2D500F0003F190 /* GameScene.swift */,
 				6B040A581D4951C90093A265 /* characteractions.sks */,
 				6BF2A8D61D47EDEE00821C1A /* candleExplosion.sks */,
 				6B181D791D5267FE0040B357 /* waterEffect.sks */,

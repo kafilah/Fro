@@ -118,8 +118,9 @@ class chooselevels: SKScene {
             scene.scaleMode = .AspectFill
             
             /* Start game scene */
-            scene.level = 1 /*loads the second level*/
+            
             skView.presentScene(scene)
+            scene.level = 1 /*loads the second level*/
             
 
         }
@@ -137,8 +138,9 @@ class chooselevels: SKScene {
             scene.scaleMode = .AspectFill
             
             /* Start game scene */
-            scene.level = 2 /*loads the second level*/
+            
             skView.presentScene(scene)
+            scene.level = 2 /*loads the second level*/
             
         }
         
@@ -155,8 +157,9 @@ class chooselevels: SKScene {
             scene.scaleMode = .AspectFill
             
             /* Start game scene */
-            scene.level = 3 /*loads the second level*/
+            
             skView.presentScene(scene)
+            scene.level = 3 /*loads the second level*/
             
 
         }
@@ -174,8 +177,9 @@ class chooselevels: SKScene {
             scene.scaleMode = .AspectFill
             
             /* Start game scene */
-            scene.level = 4 /*loads the second level*/
+            
             skView.presentScene(scene)
+            scene.level = 4 /*loads the second level*/
             
         }
         
@@ -192,8 +196,9 @@ class chooselevels: SKScene {
             scene.scaleMode = .AspectFill
             
             /* Start game scene */
-            scene.level = 5 /*loads the second level*/
+            
             skView.presentScene(scene)
+            scene.level = 5 /*loads the second level*/
           
         }
         
@@ -210,8 +215,9 @@ class chooselevels: SKScene {
             scene.scaleMode = .AspectFill
             
             /* Start game scene */
-            scene.level = 6 /*loads the second level*/
+            
             skView.presentScene(scene)
+            scene.level = 6 /*loads the second level*/
            
         }
         
@@ -228,8 +234,9 @@ class chooselevels: SKScene {
             scene.scaleMode = .AspectFill
             
             /* Start game scene */
-            scene.level = 7 /*loads the second level*/
+            
             skView.presentScene(scene)
+            scene.level = 7 /*loads the second level*/
         }
         
         level8button.selectedHandler = {
@@ -245,8 +252,9 @@ class chooselevels: SKScene {
             scene.scaleMode = .AspectFill
             
             /* Start game scene */
-            scene.level = 8 /*loads the second level*/
+            
             skView.presentScene(scene)
+            scene.level = 8 /*loads the second level*/
         }
         
         level9button.selectedHandler = {
@@ -262,8 +270,9 @@ class chooselevels: SKScene {
             scene.scaleMode = .AspectFill
             
             /* Start game scene */
-            scene.level = 9 /*loads the second level*/
+            
             skView.presentScene(scene)
+            scene.level = 9 /*loads the second level*/
         }
         
         level10button.selectedHandler = {
@@ -279,8 +288,9 @@ class chooselevels: SKScene {
             scene.scaleMode = .AspectFill
             
             /* Start game scene */
-            scene.level = 10 /*loads the second level*/
+            
             skView.presentScene(scene)
+            scene.level = 10 /*loads the second level*/
         }
         
         level11button.selectedHandler = {
@@ -296,8 +306,9 @@ class chooselevels: SKScene {
             scene.scaleMode = .AspectFill
             
             /* Start game scene */
-            scene.level = 11 /*loads the second level*/
+            
             skView.presentScene(scene)
+            scene.level = 11 /*loads the second level*/
         }
         
         level12button.selectedHandler = {
@@ -313,8 +324,9 @@ class chooselevels: SKScene {
             scene.scaleMode = .AspectFill
             
             /* Start game scene */
-            scene.level = 12 /*loads the second level*/
+            
             skView.presentScene(scene)
+            scene.level = 12 /*loads the second level*/
         }
         
         level13button.selectedHandler = {
@@ -330,8 +342,9 @@ class chooselevels: SKScene {
             scene.scaleMode = .AspectFill
             
             /* Start game scene */
-            scene.level = 13 /*loads the second level*/
+            
             skView.presentScene(scene)
+            scene.level = 13 /*loads the second level*/
         }
         
         
@@ -348,8 +361,9 @@ class chooselevels: SKScene {
             scene.scaleMode = .AspectFill
             
             /* Start game scene */
-            scene.level = 14 /*loads the second level*/
+            
             skView.presentScene(scene)
+            scene.level = 14 /*loads the second level*/
         }
         
         

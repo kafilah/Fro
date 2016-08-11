@@ -19,6 +19,8 @@ class MainScene: SKScene {
     /*setting the functionality for the home button*/
     var home_button1: MSButtonNode!
     
+    var stopMusic: MSButtonNode!
+    
     
     var directory_button: MSButtonNode!
     
@@ -31,6 +33,9 @@ class MainScene: SKScene {
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
+        
+        /*set reference to stop music button*/
+        stopMusic = self.childNodeWithName("//stopMusic") as! MSButtonNode
         
         /*set reference to home and setting buttons*/
         home_button1 = self.childNodeWithName("//home_button1") as! MSButtonNode
@@ -102,6 +107,11 @@ class MainScene: SKScene {
             /* Start game scene */
             skView.presentScene(scene)
         }
+        
+        stopMusic.selectedHandler = {
+            music.stop()
+            }
+        }
     }
+
     
-}
