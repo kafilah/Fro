@@ -313,10 +313,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             if score % 1 == 0 {
                 
                 //to change hair growth amount
-                hair.xScale += 0.009
-                hair.yScale += 0.01
+                
+                hair.xScale += 0.07
+                hair.yScale += 0.09
+                
             }
-            
            
             /* deletes nodes when collide with character*/
             var image: String
@@ -337,7 +338,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 particles.position = convertPoint(hair.position, fromNode: hair)
                 
                 /* Restrict total particles to reduce runtime of particle */
-                particles.numParticlesToEmit = 100
+                particles.numParticlesToEmit = 70
                 
                 /* Add particles to scene */
                 addChild(particles)
@@ -414,12 +415,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             else {
                 nodeB.removeFromParent()
                 image = (nodeB as! FallingObject).image
-                
-            }
+                }
+            
                 
             /*this decrease scale of hair if it comes into contact with a bad object*/
-                hair.xScale -= 0.03
-                hair.yScale -= 0.03
+               // hair.xScale -= 0.03
+               // hair.yScale -= 0.08
+                
+                hair.xScale -= 0.07
+                hair.yScale -= 0.09
             
             
           
@@ -466,8 +470,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     
                     /* Add particles to scene */
                     addChild(particles)
-                    
                 }
+                
+                if image == "relaxertub.png" {
+                    /* Load our particle effect */
+                    let particles = SKEmitterNode(fileNamed: "alcoholReaction")!
+                    
+                    /* Convert node location (currently inside Level 1, to scene space) */
+                    particles.position = convertPoint(hair.position, fromNode: hair)
+                    
+                    /* Restrict total particles to reduce runtime of particle */
+                    particles.numParticlesToEmit = 100
+                    
+                    /* Add particles to scene */
+                    addChild(particles)
+                }
+
                 
                 if image == "flatiron.png" {
                     /* Load our particle effect */
@@ -481,8 +499,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     
                     /* Add particles to scene */
                     addChild(particles)
-                    
-                }
+                
+            }
                 
                 
                 /*decrease health*/
@@ -532,7 +550,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.addChild(createbadObject(["heatrays.png", "candle.png"]))
                 badtimer = 0}
             
-            if transitiontimer > 5.0 {
+            if transitiontimer > 30.0 {
                 self.addChild(transitionObject()) /*function*/
                 transitiontimer = 0} /*always*/
             }
