@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Melon/GameScene.swift"
-            timestampString = "492648107.398941"
+            timestampString = "492656804.919628"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "385"
-            endingLineNumber = "385"
+            startingLineNumber = "381"
+            endingLineNumber = "381"
             landmarkName = "didBeginContact(_:)"
             landmarkType = "5">
          </BreakpointContent>

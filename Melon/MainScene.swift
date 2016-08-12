@@ -26,7 +26,7 @@ class MainScene: SKScene {
     
     /*this function allows me to link a button with a website*/
     @IBAction func WebLink(sender: AnyObject) {
-        if let url = NSURL(string: "http://kafilah.me") {
+        if let url = NSURL(string: "https://thefroapp.com") {
             UIApplication.sharedApplication().openURL(url)
         }
     }
