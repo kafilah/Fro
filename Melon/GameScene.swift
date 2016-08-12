@@ -314,8 +314,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 
                 //to change hair growth amount
                 
-                hair.xScale += 0.07
-                hair.yScale += 0.09
+                hair.xScale += 0.05
+                hair.yScale += 0.05
                 
             }
             
