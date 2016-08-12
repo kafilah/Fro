@@ -109,9 +109,11 @@ class MainScene: SKScene {
         }
         
         stopMusic.selectedHandler = {
+            if music.play() == true {
             music.stop()
+            }
+            else { music.play()
             }
         }
     }
-
-    
+}

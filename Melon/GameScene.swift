@@ -318,6 +318,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 hair.yScale += 0.09
                 
             }
+            
+            //need to see if hair growth works
+            //hair.xScale += 0.07
+            //hair.yScale += 0.09
            
             /* deletes nodes when collide with character*/
             var image: String
@@ -550,7 +554,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.addChild(createbadObject(["heatrays.png", "candle.png"]))
                 badtimer = 0}
             
-            if transitiontimer > 30.0 {
+            if transitiontimer > 25.0 {
                 self.addChild(transitionObject()) /*function*/
                 transitiontimer = 0} /*always*/
             }
@@ -564,7 +568,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.addChild(createbadObject(["heatrays.png", "candle.png"]))
                 badtimer = 0}
             
-            if transitiontimer > 15.0 {
+            if transitiontimer > 25.0 {
                 self.addChild(transitionObject()) /*function*/
                 transitiontimer = 0}
             
@@ -582,7 +586,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.addChild(createbadObject(["heatrays.png", "candle.png", "alcohol.png"]))
                 badtimer = 0}
             
-            if transitiontimer > 20.0 {
+            if transitiontimer > 25.0 {
                 self.addChild(transitionObject()) /*function*/
                 transitiontimer = 0}
         }
@@ -595,7 +599,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.addChild(createbadObject(["heatrays.png", "candle.png", "alcohol.png"]))
                 badtimer = 0}
             
-            if transitiontimer > 30.0 {
+            if transitiontimer > 25.0 {
                 self.addChild(transitionObject()) /*function*/
                 transitiontimer = 0}
         }
@@ -608,7 +612,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.addChild(createbadObject(["heatrays.png", "candle.png", "alcohol.png"]))
                 badtimer = 0}
             
-            if transitiontimer > 40.0 {
+            if transitiontimer > 25.0 {
                 self.addChild(transitionObject()) /*function*/
                 transitiontimer = 0}
         }
@@ -621,7 +625,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.addChild(createbadObject(["heatrays.png", "candle.png", "alcohol.png", "permbox.png"]))
                 badtimer = 0}
             
-            if transitiontimer > 40.0 {
+            if transitiontimer > 25.0{
                 self.addChild(transitionObject()) /*function*/
                 transitiontimer = 0}
         }
@@ -634,7 +638,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.addChild(createbadObject(["heatrays.png", "candle.png", "alcohol.png", "permbox.png"]))
                 badtimer = 0}
             
-            if transitiontimer > 40.0 {
+            if transitiontimer > 30.0 {
                 self.addChild(transitionObject()) /*function*/
                 transitiontimer = 0}
         }
@@ -647,7 +651,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.addChild(createbadObject(["heatrays.png", "candle.png", "alcohol.png", "permbox.png", "petroleum.png"]))
                 badtimer = 0}
             
-            if transitiontimer > 40.0 {
+            if transitiontimer > 30.0  {
                 self.addChild(transitionObject()) /*function*/
                 transitiontimer = 0}
         }
@@ -660,7 +664,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.addChild(createbadObject(["heatrays.png", "candle.png", "alcohol.png", "permbox.png", "petroleum.png"]))
                 badtimer = 0}
             
-            if transitiontimer > 40.0 {
+            if transitiontimer > 30.0  {
                 self.addChild(transitionObject()) /*function*/
                 transitiontimer = 0}
         }
@@ -673,7 +677,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.addChild(createbadObject(["heatrays.png", "candle.png", "alcohol.png", "permbox.png", "petroleum.png", "relaxertub.png"]))
                 badtimer = 0}
             
-            if transitiontimer > 40.0 {
+            if transitiontimer > 30.0  {
                 self.addChild(transitionObject()) /*function*/
                 transitiontimer = 0}
         }
@@ -686,7 +690,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.addChild(createbadObject(["heatrays.png", "candle.png", "alcohol.png", "permbox.png", "petroleum.png", "relaxertub.png"]))
                 badtimer = 0}
             
-            if transitiontimer > 40.0 {
+            if transitiontimer > 30.0  {
                 self.addChild(transitionObject()) /*function*/
                 transitiontimer = 0}
         }
@@ -699,7 +703,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.addChild(createbadObject(["heatrays.png", "candle.png", "alcohol.png", "permbox.png", "petroleum.png", "relaxertub.png", "flatiron.png"]))
                 badtimer = 0}
             
-            if transitiontimer > 40.0 {
+            if transitiontimer > 30.0  {
                 self.addChild(transitionObject()) /*function*/
                 transitiontimer = 0}
         }
@@ -712,7 +716,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.addChild(createbadObject(["heatrays.png", "candle.png", "alcohol.png", "permbox.png", "petroleum.png", "relaxertub.png", "flatiron.png"]))
                 badtimer = 0}
             
-            if transitiontimer > 40.0 {
+            if transitiontimer > 30.0  {
                 self.addChild(transitionObject()) /*function*/
                 transitiontimer = 0}
         }
@@ -725,7 +729,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.addChild(createbadObject(["heatrays.png", "candle.png", "alcohol.png", "permbox.png", "petroleum.png", "relaxertub.png", "flatiron.png"]))
                 badtimer = 0}
             
-            if transitiontimer > 40.0 {
+            if transitiontimer > 30.0  {
                 self.addChild(transitionObject()) /*function*/
                 transitiontimer = 0}
         }
@@ -738,7 +742,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.addChild(createbadObject(["heatrays.png", "candle.png", "alcohol.png", "permbox.png", "petroleum.png", "relaxertub.png", "flatiron.png"]))
                 badtimer = 0}
             
-            if transitiontimer > 40.0 {
+            if transitiontimer > 30.0  {
                 self.addChild(transitionObject()) /*function*/
                 transitiontimer = 0}
         }
