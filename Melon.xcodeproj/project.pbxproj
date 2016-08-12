@@ -57,6 +57,8 @@
 		6BF2A8D31D47BC0500821C1A /* level3.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6BF2A8D21D47BC0500821C1A /* level3.sks */; };
 		6BF2A8D51D47BC1500821C1A /* level4.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6BF2A8D41D47BC1500821C1A /* level4.sks */; };
 		6BF2A8D81D47EDEE00821C1A /* candleExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6BF2A8D61D47EDEE00821C1A /* candleExplosion.sks */; };
+		6BF6B36F1D5D93F200CA3486 /* alcoholReaction.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6BF6B36D1D5D93F200CA3486 /* alcoholReaction.sks */; };
+		6BF6B3721D5D95AF00CA3486 /* ironReaction.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6BF6B3711D5D95AF00CA3486 /* ironReaction.sks */; };
 		6BFA62C21D4A5BC800AD297A /* chooselevels.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6BFA62C11D4A5BC800AD297A /* chooselevels.sks */; };
 		6BFA62C41D4A5DAB00AD297A /* chooselevels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFA62C31D4A5DAB00AD297A /* chooselevels.swift */; };
 		6BFF7DB81D5BA166000CA86A /* badobjectinfo.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6BFF7DB71D5BA166000CA86A /* badobjectinfo.sks */; };
@@ -121,6 +123,8 @@
 		6BF2A8D21D47BC0500821C1A /* level3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = level3.sks; sourceTree = "<group>"; };
 		6BF2A8D41D47BC1500821C1A /* level4.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = level4.sks; sourceTree = "<group>"; };
 		6BF2A8D61D47EDEE00821C1A /* candleExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = candleExplosion.sks; sourceTree = "<group>"; };
+		6BF6B36D1D5D93F200CA3486 /* alcoholReaction.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = alcoholReaction.sks; path = ../alcoholReaction.sks; sourceTree = "<group>"; };
+		6BF6B3711D5D95AF00CA3486 /* ironReaction.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ironReaction.sks; sourceTree = "<group>"; };
 		6BFA62C11D4A5BC800AD297A /* chooselevels.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = chooselevels.sks; sourceTree = "<group>"; };
 		6BFA62C31D4A5DAB00AD297A /* chooselevels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chooselevels.swift; sourceTree = "<group>"; };
 		6BFF7DB71D5BA166000CA86A /* badobjectinfo.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = badobjectinfo.sks; sourceTree = "<group>"; };
@@ -218,10 +222,12 @@
 				6B040A5A1D49522C0093A265 /* growflowers.sks */,
 				6BEDCF951D2D500F0003F190 /* GameScene.sks */,
 				6BEDCF971D2D500F0003F190 /* GameScene.swift */,
+				6BF6B36D1D5D93F200CA3486 /* alcoholReaction.sks */,
 				6B040A581D4951C90093A265 /* characteractions.sks */,
 				6BF2A8D61D47EDEE00821C1A /* candleExplosion.sks */,
 				6B181D791D5267FE0040B357 /* waterEffect.sks */,
 				6B181D7B1D52928B0040B357 /* heatEffect.sks */,
+				6BF6B3711D5D95AF00CA3486 /* ironReaction.sks */,
 				6B07E29B1D46561F004C61CE /* levels */,
 				6B2989901D52FCC50004DCF8 /* mainfro.sks */,
 				6B2989911D52FCC50004DCF8 /* spark.png */,
@@ -339,6 +345,7 @@
 				6BC877671D5A595400A146B0 /* level8.sks in Resources */,
 				6BF2A8D11D47BBF300821C1A /* level2.sks in Resources */,
 				6BFF7DC41D5BE420000CA86A /* bgmusic.wav in Resources */,
+				6BF6B3721D5D95AF00CA3486 /* ironReaction.sks in Resources */,
 				6BC877651D5A594800A146B0 /* level7.sks in Resources */,
 				6BEDCF9F1D2D500F0003F190 /* Assets.xcassets in Resources */,
 				6BC8776D1D5A597A00A146B0 /* level11.sks in Resources */,
@@ -346,6 +353,7 @@
 				6B9DCF051D342E1D00551877 /* MainScene.sks in Resources */,
 				6BF2A8D81D47EDEE00821C1A /* candleExplosion.sks in Resources */,
 				6BFF7DB81D5BA166000CA86A /* badobjectinfo.sks in Resources */,
+				6BF6B36F1D5D93F200CA3486 /* alcoholReaction.sks in Resources */,
 				6BEDCF9D1D2D500F0003F190 /* Main.storyboard in Resources */,
 				6BEDCFAD1D2D52AD0003F190 /* sfx_goal.caf in Resources */,
 				6BC877731D5A59A600A146B0 /* level14.sks in Resources */,

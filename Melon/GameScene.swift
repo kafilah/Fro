@@ -313,8 +313,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             if score % 1 == 0 {
                 
                 //to change hair growth amount
-                hair.xScale += 0.09
-                hair.yScale += 0.002
+                hair.xScale += 0.009
+                hair.yScale += 0.01
             }
             
            
@@ -454,6 +454,36 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     
                 }
                 
+                if image == "alcohol.png" {
+                    /* Load our particle effect */
+                    let particles = SKEmitterNode(fileNamed: "alcoholReaction")!
+                    
+                    /* Convert node location (currently inside Level 1, to scene space) */
+                    particles.position = convertPoint(hair.position, fromNode: hair)
+                    
+                    /* Restrict total particles to reduce runtime of particle */
+                    particles.numParticlesToEmit = 100
+                    
+                    /* Add particles to scene */
+                    addChild(particles)
+                    
+                }
+                
+                if image == "flatiron.png" {
+                    /* Load our particle effect */
+                    let particles = SKEmitterNode(fileNamed: "alcoholReaction")!
+                    
+                    /* Convert node location (currently inside Level 1, to scene space) */
+                    particles.position = convertPoint(hair.position, fromNode: hair)
+                    
+                    /* Restrict total particles to reduce runtime of particle */
+                    particles.numParticlesToEmit = 100
+                    
+                    /* Add particles to scene */
+                    addChild(particles)
+                    
+                }
+                
                 
                 /*decrease health*/
                 health -= 0.1
@@ -495,13 +525,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         /*also edit stuff for levels*/
         if level == 0 {
             if timer > 0.5 {
-                self.addChild(creategoodObject(["avocado.png","acvinegar.png", "banana.png","coconutoil.png", "conditioner.png", "eggs.png",
-                    "honey.png", "leafy.png", "oliveoil.png", "shampoo.png",
-                    "watericon.png", ]))
+                self.addChild(creategoodObject(["avocado.png", "watericon.png", ]))
                 timer = 0}
             
             if badtimer > 1.0 {
-                self.addChild(createbadObject(["heatrays.png", "alcohol.png"]))
+                self.addChild(createbadObject(["heatrays.png", "candle.png"]))
                 badtimer = 0}
             
             if transitiontimer > 5.0 {
@@ -511,7 +539,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         else if level == 1 {
             if timer > 0.5 {
-                self.addChild(creategoodObject(["avocado.png", "banana.png", "watericon.png", "coconutoil.png"]))
+                self.addChild(creategoodObject(["avocado.png", "banana.png", "watericon.png"]))
                 timer = 0}
             
             if badtimer > 0.8 {
@@ -529,11 +557,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
         else if level == 2 {
             if timer > 0.5 {
-                self.addChild(creategoodObject(["avocado.png", "banana.png", "watericon.png", "coconutoil.png"]))
+                self.addChild(creategoodObject(["avocado.png", "banana.png", "watericon.png"]))
                 timer = 0}
             
             if badtimer > 1.0 {
-                self.addChild(createbadObject(["heatrays.png"]))
+                self.addChild(createbadObject(["heatrays.png", "candle.png", "alcohol.png"]))
                 badtimer = 0}
             
             if transitiontimer > 20.0 {
@@ -542,11 +570,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         else if level == 3 {
             if timer > 0.5 {
-                self.addChild(creategoodObject(["banana.png", "watericon.png"]))
+                self.addChild(creategoodObject(["avocado.png", "banana.png", "watericon.png", "coconutoil.png"]))
                 timer = 0}
             
             if badtimer > 1.0 {
-                self.addChild(createbadObject(["heatrays.png"]))
+                self.addChild(createbadObject(["heatrays.png", "candle.png", "alcohol.png"]))
                 badtimer = 0}
             
             if transitiontimer > 30.0 {
@@ -555,11 +583,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         else if level == 4 {
             if timer > 0.5 {
-                self.addChild(creategoodObject(["banana.png", "watericon.png"]))
+                self.addChild(creategoodObject(["avocado.png", "banana.png", "watericon.png", "coconutoil.png"]))
                 timer = 0}
             
             if badtimer > 1.0 {
-                self.addChild(createbadObject(["heatrays.png"]))
+                self.addChild(createbadObject(["heatrays.png", "candle.png", "alcohol.png"]))
                 badtimer = 0}
             
             if transitiontimer > 40.0 {
@@ -568,11 +596,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         else if level == 5 {
             if timer > 0.5 {
-                self.addChild(creategoodObject(["banana.png", "watericon.png"]))
+                self.addChild(creategoodObject(["avocado.png", "banana.png", "watericon.png", "coconutoil.png", "conditioner.png"]))
                 timer = 0}
             
             if badtimer > 1.0 {
-                self.addChild(createbadObject(["heatrays.png"]))
+                self.addChild(createbadObject(["heatrays.png", "candle.png", "alcohol.png", "permbox.png"]))
                 badtimer = 0}
             
             if transitiontimer > 40.0 {
@@ -581,11 +609,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         else if level == 6 {
             if timer > 0.5 {
-                self.addChild(creategoodObject(["banana.png", "watericon.png"]))
+                self.addChild(creategoodObject(["avocado.png", "banana.png", "watericon.png", "coconutoil.png", "conditioner.png"]))
                 timer = 0}
             
             if badtimer > 1.0 {
-                self.addChild(createbadObject(["heatrays.png"]))
+                self.addChild(createbadObject(["heatrays.png", "candle.png", "alcohol.png", "permbox.png"]))
                 badtimer = 0}
             
             if transitiontimer > 40.0 {
@@ -594,11 +622,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         else if level == 7 {
             if timer > 0.5 {
-                self.addChild(creategoodObject(["banana.png", "watericon.png"]))
+                self.addChild(creategoodObject(["avocado.png", "banana.png", "watericon.png", "coconutoil.png", "conditioner.png", "shampoo.png"]))
                 timer = 0}
             
             if badtimer > 1.0 {
-                self.addChild(createbadObject(["heatrays.png"]))
+                self.addChild(createbadObject(["heatrays.png", "candle.png", "alcohol.png", "permbox.png", "petroleum.png"]))
                 badtimer = 0}
             
             if transitiontimer > 40.0 {
@@ -607,11 +635,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         else if level == 8 {
             if timer > 0.5 {
-                self.addChild(creategoodObject(["banana.png", "watericon.png"]))
+                self.addChild(creategoodObject(["avocado.png", "banana.png", "watericon.png", "coconutoil.png", "conditioner.png", "shampoo.png"]))
                 timer = 0}
             
             if badtimer > 1.0 {
-                self.addChild(createbadObject(["heatrays.png"]))
+                self.addChild(createbadObject(["heatrays.png", "candle.png", "alcohol.png", "permbox.png", "petroleum.png"]))
                 badtimer = 0}
             
             if transitiontimer > 40.0 {
@@ -620,11 +648,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         else if level == 9 {
             if timer > 0.5 {
-                self.addChild(creategoodObject(["banana.png", "watericon.png"]))
+                self.addChild(creategoodObject(["avocado.png", "banana.png", "watericon.png", "coconutoil.png", "conditioner.png", "shampoo.png", "honey.png"]))
                 timer = 0}
             
             if badtimer > 1.0 {
-                self.addChild(createbadObject(["heatrays.png"]))
+                self.addChild(createbadObject(["heatrays.png", "candle.png", "alcohol.png", "permbox.png", "petroleum.png", "relaxertub.png"]))
                 badtimer = 0}
             
             if transitiontimer > 40.0 {
@@ -633,11 +661,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         else if level == 10 {
             if timer > 0.5 {
-                self.addChild(creategoodObject(["banana.png", "watericon.png"]))
+                self.addChild(creategoodObject(["avocado.png", "banana.png", "watericon.png", "coconutoil.png", "conditioner.png", "shampoo.png", "honey.png"]))
                 timer = 0}
             
             if badtimer > 1.0 {
-                self.addChild(createbadObject(["heatrays.png"]))
+                self.addChild(createbadObject(["heatrays.png", "candle.png", "alcohol.png", "permbox.png", "petroleum.png", "relaxertub.png"]))
                 badtimer = 0}
             
             if transitiontimer > 40.0 {
@@ -646,11 +674,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         else if level == 11 {
             if timer > 0.5 {
-                self.addChild(creategoodObject(["banana.png", "watericon.png"]))
+                self.addChild(creategoodObject(["avocado.png", "banana.png", "watericon.png", "coconutoil.png", "conditioner.png", "shampoo.png", "honey.png", "leafy.png"]))
                 timer = 0}
             
             if badtimer > 1.0 {
-                self.addChild(createbadObject(["heatrays.png"]))
+                self.addChild(createbadObject(["heatrays.png", "candle.png", "alcohol.png", "permbox.png", "petroleum.png", "relaxertub.png", "flatiron.png"]))
                 badtimer = 0}
             
             if transitiontimer > 40.0 {
@@ -659,11 +687,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         else if level == 12 {
             if timer > 0.5 {
-                self.addChild(creategoodObject(["banana.png", "watericon.png"]))
+                self.addChild(creategoodObject(["avocado.png", "banana.png", "watericon.png", "coconutoil.png", "conditioner.png", "shampoo.png", "honey.png", "leafy.png", "oliveoil.png"]))
                 timer = 0}
             
             if badtimer > 1.0 {
-                self.addChild(createbadObject(["heatrays.png"]))
+                self.addChild(createbadObject(["heatrays.png", "candle.png", "alcohol.png", "permbox.png", "petroleum.png", "relaxertub.png", "flatiron.png"]))
                 badtimer = 0}
             
             if transitiontimer > 40.0 {
@@ -672,11 +700,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         else if level == 13 {
             if timer > 0.5 {
-                self.addChild(creategoodObject(["banana.png", "watericon.png"]))
+                self.addChild(creategoodObject(["avocado.png", "banana.png", "watericon.png", "coconutoil.png", "conditioner.png", "shampoo.png", "honey.png", "leafy.png", "oliveoil.png", "eggs.png"]))
                 timer = 0}
             
             if badtimer > 1.0 {
-                self.addChild(createbadObject(["heatrays.png"]))
+                self.addChild(createbadObject(["heatrays.png", "candle.png", "alcohol.png", "permbox.png", "petroleum.png", "relaxertub.png", "flatiron.png"]))
                 badtimer = 0}
             
             if transitiontimer > 40.0 {
@@ -685,11 +713,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         else if level == 14 {
             if timer > 0.5 {
-                self.addChild(creategoodObject(["banana.png", "watericon.png"]))
+                self.addChild(creategoodObject(["avocado.png", "banana.png", "watericon.png", "coconutoil.png", "conditioner.png", "shampoo.png", "honey.png", "leafy.png", "oliveoil.png", "eggs.png"]))
                 timer = 0}
             
             if badtimer > 1.0 {
-                self.addChild(createbadObject(["heatrays.png"]))
+                self.addChild(createbadObject(["heatrays.png", "candle.png", "alcohol.png", "permbox.png", "petroleum.png", "relaxertub.png", "flatiron.png"]))
                 badtimer = 0}
             
             if transitiontimer > 40.0 {
