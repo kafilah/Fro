@@ -573,7 +573,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 transitiontimer = 0}
             
             /*test code for blowdryer obstacle*/
-            if bmtimer > 3.0 {
+            if bmtimer > 4.0 {
                 self.addChild(badmovingObject()) /*function*/
                 bmtimer = 0} /*always*/
             }
@@ -615,6 +615,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             if transitiontimer > 25.0 {
                 self.addChild(transitionObject()) /*function*/
                 transitiontimer = 0}
+            
+            /*test code for blowdryer obstacle*/
+            if bmtimer > 4.0 {
+                self.addChild(badmovingObject()) /*function*/
+                bmtimer = 0} /*always*/
         }
         else if level == 5 {
             if timer > 0.5 {
@@ -641,6 +646,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             if transitiontimer > 30.0 {
                 self.addChild(transitionObject()) /*function*/
                 transitiontimer = 0}
+            
+            /*test code for blowdryer obstacle*/
+            if bmtimer > 4.0 {
+                self.addChild(badmovingObject()) /*function*/
+                bmtimer = 0} /*always*/
         }
         else if level == 7 {
             if timer > 0.5 {
@@ -667,6 +677,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             if transitiontimer > 30.0  {
                 self.addChild(transitionObject()) /*function*/
                 transitiontimer = 0}
+            
+            /*test code for blowdryer obstacle*/
+            if bmtimer > 4.0 {
+                self.addChild(badmovingObject()) /*function*/
+                bmtimer = 0} /*always*/
         }
         else if level == 9 {
             if timer > 0.5 {
@@ -693,6 +708,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             if transitiontimer > 30.0  {
                 self.addChild(transitionObject()) /*function*/
                 transitiontimer = 0}
+            
+            /*test code for blowdryer obstacle*/
+            if bmtimer > 4.0 {
+                self.addChild(badmovingObject()) /*function*/
+                bmtimer = 0} /*always*/
         }
         else if level == 11 {
             if timer > 0.5 {
@@ -732,6 +752,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             if transitiontimer > 30.0  {
                 self.addChild(transitionObject()) /*function*/
                 transitiontimer = 0}
+            
+            /*test code for blowdryer obstacle*/
+            if bmtimer > 4.0 {
+                self.addChild(badmovingObject()) /*function*/
+                bmtimer = 0} /*always*/
         }
         else if level == 14 {
             if timer > 0.5 {
